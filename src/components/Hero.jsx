@@ -4,17 +4,17 @@ import { useSwipeable } from "react-swipeable";
 
 const slides = [
   {
-    image: "/images/slide1.jpg",
+    image: "/images/slide1.webp",
     title: "Transform Your Space",
     subtitle: "Expert interior design services for your home or office",
   },
   {
-    image: "/images/slide2.jpg",
+    image: "/images/slide2.webp",
     title: "Modern Kitchens",
     subtitle: "Modern designs for a functional and stylish kitchen",
   },
   {
-    image: "/images/slide3.jpg",
+    image: "/images/slide3.webp",
     title: "Elegant Spaces",
     subtitle: "Timeless designs for your living room",
   },
