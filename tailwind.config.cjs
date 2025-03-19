@@ -1,17 +1,23 @@
-module.exports = {
-  darkMode: "class",
-  content: ["./src/**/*.{js,jsx}"],
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
-      colors: {
-        'beige-200': '#f5e8d7', // Soft beige
-        'gray-300': '#d1d5db',  // Light gray
-        'blue-100': '#dbeafe',
-        "teal-400": "#2dd4bf",
-        "teal-500": "#14b8a6",  // Soft blue
+      fontFamily: {
+        dancing: ['"Dancing Script"', "cursive"],
       },
       animation: {
-        'fade-gradient': 'fadeGradient 3s ease infinite',
+        'border-pulse': 'borderPulse 2s ease-in-out infinite', // Custom border pulse animation
+      },
+      keyframes: {
+        borderPulse: {
+          '0%, 100%': {
+            borderColor: 'rgba(209, 213, 219, 1)', // gray-300
+          },
+          '50%': {
+            borderColor: 'rgba(45, 212, 191, 1)', // teal-400
+          },
+        },
       },
     },
   },
