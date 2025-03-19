@@ -11,7 +11,7 @@
 //     "relative flex flex-col h-[100vh] items-center justify-center bg-zinc-900 dark:bg-zinc-900 text-slate-950 transition-bg";
 //   const outerClassName = `${baseClasses} ${className || ""}`.trim();
 
-//   // Base classes for the animation div
+//   // Base classes for the animation diva
 //   const gradientClasses = `
 //     [--white-gradient:repeating-linear-gradient(100deg,var(--white)_0%,var(--white)_7%,var(--transparent)_10%,var(--transparent)_12%,var(--white)_16%)]
 //     [--dark-gradient:repeating-linear-gradient(100deg,var(--black)_0%,var(--black)_7%,var(--transparent)_10%,var(--transparent)_12%,var(--black)_16%)]
