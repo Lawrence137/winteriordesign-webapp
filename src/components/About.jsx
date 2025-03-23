@@ -1,33 +1,6 @@
-import { useEffect, useRef } from 'react';
 import { FaMoneyBillWave, FaPaintBrush, FaUsers } from 'react-icons/fa';
 
 function About() {
-  const sectionRef = useRef(null);
-
-  // Add a class to trigger animations when the section comes into view
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('animate-in');
-          }
-        });
-      },
-      { threshold: 0.2 }
-    );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
-      }
-    };
-  }, []);
-
   return (
     <section
       id="about"
@@ -37,16 +10,15 @@ function About() {
         backgroundSize: 'cover',
         backgroundPosition: 'center',
       }}
-      ref={sectionRef}
     >
       <div className="container mx-auto px-4 flex flex-col items-center justify-center min-h-[calc(100vh-4rem)] relative">
         {/* Title */}
-        <h2 className="text-3xl md:text-4xl font-dancing font-bold mb-6 opacity-0 transition-opacity duration-500">
+        <h2 className="text-3xl md:text-4xl font-dancing font-bold mb-6">
           About Us
         </h2>
 
         {/* Circular CEO Headshot */}
-        <div className="w-40 h-40 sm:w-48 sm:h-48 md:w-56 md:h-56 overflow-hidden rounded-full shadow-md mb-8 opacity-0 transition-opacity duration-500 delay-200">
+        <div className="w-40 h-40 sm:w-48 sm:h-48 md:w-56 md:h-56 overflow-hidden rounded-full shadow-md mb-8">
           <img
             src="/images/ceo-headshot.webp"
             alt="CEO Headshot"
@@ -55,7 +27,7 @@ function About() {
         </div>
 
         {/* CEO Name and Role */}
-        <div className="text-center mb-4 opacity-0 transition-opacity duration-500 delay-400">
+        <div className="text-center mb-4">
           <p className="text-lg md:text-xl font-dancing text-white mb-1">
             Lawrence Kimani
           </p>
@@ -65,7 +37,7 @@ function About() {
         </div>
 
         {/* About Us Text */}
-        <div className="text-center w-full md:px-8 mb-8 opacity-0 transition-opacity duration-500 delay-600">
+        <div className="text-center w-full md:px-8 mb-8">
           <p className="text-lg mb-4 text-white max-w-2xl mx-auto bg-black/50 p-4 rounded-3xl">
             Winterior Designs Co. is dedicated to creating beautiful and functional spaces that reflect your personal style and needs. With years of experience, our team of designers works closely with clients to bring their vision to life.
           </p>
@@ -78,7 +50,7 @@ function About() {
         <div className="w-full mt-8">
           <div className="flex flex-col md:flex-row gap-6 justify-center">
             {/* Card 1: Reasonable Prices */}
-            <div className="step-card bg-white/20 backdrop-blur-md p-6 rounded-3xl shadow-md hover:shadow-lg hover:scale-105 transition-all duration-300 flex-1 max-w-sm opacity-0">
+            <div className="step-card bg-white/20 backdrop-blur-md p-6 rounded-3xl shadow-md hover:shadow-lg hover:scale-105 transition-all duration-300 flex-1 max-w-sm">
               <FaMoneyBillWave className="text-teal-400 text-4xl mb-4 mx-auto" />
               <h3 className="text-xl font-semibold mb-2 text-center">
                 Reasonable Prices
@@ -89,7 +61,7 @@ function About() {
             </div>
 
             {/* Card 2: Exclusive Design */}
-            <div className="step-card bg-white/20 backdrop-blur-md p-6 rounded-3xl shadow-md hover:shadow-lg hover:scale-105 transition-all duration-300 flex-1 max-w-sm opacity-0 delay-200">
+            <div className="step-card bg-white/20 backdrop-blur-md p-6 rounded-3xl shadow-md hover:shadow-lg hover:scale-105 transition-all duration-300 flex-1 max-w-sm">
               <FaPaintBrush className="text-teal-400 text-4xl mb-4 mx-auto" />
               <h3 className="text-xl font-semibold mb-2 text-center">
                 Exclusive Design
@@ -100,7 +72,7 @@ function About() {
             </div>
 
             {/* Card 3: Professional Team */}
-            <div className="step-card bg-white/20 backdrop-blur-md p-6 rounded-3xl shadow-md hover:shadow-lg hover:scale-105 transition-all duration-300 flex-1 max-w-sm opacity-0 delay-400">
+            <div className="step-card bg-white/20 backdrop-blur-md p-6 rounded-3xl shadow-md hover:shadow-lg hover:scale-105 transition-all duration-300 flex-1 max-w-sm">
               <FaUsers className="text-teal-400 text-4xl mb-4 mx-auto" />
               <h3 className="text-xl font-semibold mb-2 text-center">
                 Professional Team

@@ -93,18 +93,18 @@ html {
 /* process section */
 
 /* Animation for elements coming into view */
-.animate-in .opacity-0 {
+/* .animate-in .opacity-0 {
   opacity: 1 !important;
-}
+} */
 
 /* Delay classes for staggered animations */
-.delay-200 {
+/* .delay-200 {
   transition-delay: 200ms;
 }
 
 .delay-400 {
   transition-delay: 400ms;
-}
+} */
 
 /* Parallax effect for the background */
 #process {
@@ -129,12 +129,12 @@ html {
 /* about section */
 
 /* Animation for elements coming into view */
-.animate-in .opacity-0 {
+/* .animate-in .opacity-0 {
   opacity: 1 !important;
-}
+} */
 
 /* Delay classes for staggered animations */
-.delay-200 {
+/* .delay-200 {
   transition-delay: 200ms;
 }
 
@@ -144,7 +144,7 @@ html {
 
 .delay-600 {
   transition-delay: 600ms;
-}
+} */
 
 /* Parallax effect for the background */
 #about {
