@@ -8,6 +8,7 @@ import Portfolio from './components/Portfolio';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import WhatsappIcon from './components/WhatsappIcon';
+import Process from './components/Process';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Hero />
         <About />
         <Portfolio />
+        <Process />
         <Contact />
       </main>
       <Footer />
