@@ -1,29 +1,52 @@
+import { useEffect, useRef } from 'react';
 import { FaMoneyBillWave, FaPaintBrush, FaUsers } from 'react-icons/fa';
 
 function About() {
+  const sectionRef = useRef(null);
+
+  // Add a class to trigger animations when the section comes into view
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate-in');
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
+
   return (
     <section
       id="about"
-      className="py-16 scroll-mt-16 relative"
+      className="py-16 scroll-mt-16 relative bg-cover bg-center text-white"
       style={{
-        backgroundImage: "url('/images/aboutbg.webp')",
+        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/images/aboutbg.webp')`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
-        // backgroundAttachment: 'fixed', // Optional: Parallax effect
       }}
+      ref={sectionRef}
     >
-      {/* Semi-transparent overlay with blur */}
-      <div
-        className="absolute inset-0 bg-black/50 backdrop-blur-md"
-        style={{ zIndex: 1 }}
-      ></div>
+      <div className="container mx-auto px-4 flex flex-col items-center justify-center min-h-[calc(100vh-4rem)] relative">
+        {/* Title */}
+        <h2 className="text-3xl md:text-4xl font-dancing font-bold mb-6 opacity-0 transition-opacity duration-500">
+          About Us
+        </h2>
 
-      
-
-      <div className="container mx-auto px-4 flex flex-col items-center justify-center min-h-[calc(100vh-4rem)] relative" style={{ zIndex: 2 }}>
-      <h2 className="text-3xl font-bold mb-6 text-white">About Us</h2>
         {/* Circular CEO Headshot */}
-        <div className="w-40 h-40 sm:w-48 sm:h-48 md:w-56 md:h-56 overflow-hidden rounded-full shadow-md mb-8">
+        <div className="w-40 h-40 sm:w-48 sm:h-48 md:w-56 md:h-56 overflow-hidden rounded-full shadow-md mb-8 opacity-0 transition-opacity duration-500 delay-200">
           <img
             src="/images/ceo-headshot.webp"
             alt="CEO Headshot"
@@ -32,7 +55,7 @@ function About() {
         </div>
 
         {/* CEO Name and Role */}
-        <div className="text-center mb-4">
+        <div className="text-center mb-4 opacity-0 transition-opacity duration-500 delay-400">
           <p className="text-lg md:text-xl font-dancing text-white mb-1">
             Lawrence Kimani
           </p>
@@ -42,11 +65,11 @@ function About() {
         </div>
 
         {/* About Us Text */}
-        <div className="text-center w-full md:px-8">
-          <p className="text-lg mb-4 text-white">
+        <div className="text-center w-full md:px-8 mb-8 opacity-0 transition-opacity duration-500 delay-600">
+          <p className="text-lg mb-4 text-white max-w-2xl mx-auto bg-black/50 p-4 rounded-3xl">
             Winterior Designs Co. is dedicated to creating beautiful and functional spaces that reflect your personal style and needs. With years of experience, our team of designers works closely with clients to bring their vision to life.
           </p>
-          <p className="text-lg text-white">
+          <p className="text-lg text-white max-w-2xl mx-auto bg-black/50 p-4 rounded-3xl">
             We believe that every space has the potential to be extraordinary. Let us help you transform your home or office into a place you will love.
           </p>
         </div>
@@ -55,45 +78,38 @@ function About() {
         <div className="w-full mt-8">
           <div className="flex flex-col md:flex-row gap-6 justify-center">
             {/* Card 1: Reasonable Prices */}
-            <div className="bg-white p-6 rounded-3xl shadow-md hover:shadow-lg transition-shadow duration-300 flex-1 max-w-sm">
+            <div className="step-card bg-white/20 backdrop-blur-md p-6 rounded-3xl shadow-md hover:shadow-lg hover:scale-105 transition-all duration-300 flex-1 max-w-sm opacity-0">
               <FaMoneyBillWave className="text-teal-400 text-4xl mb-4 mx-auto" />
-              <h3 className="text-xl font-bold mb-2 text-center text-gray-800">
+              <h3 className="text-xl font-semibold mb-2 text-center">
                 Reasonable Prices
               </h3>
-              <p className="text-gray-600 text-center">
+              <p className="text-gray-200 text-center">
                 We design kitchens and other interior fittings that fulfill the needs of all people and offer it at affordable and fair prices.
               </p>
             </div>
 
             {/* Card 2: Exclusive Design */}
-            <div className="bg-white p-6 rounded-3xl shadow-md hover:shadow-lg transition-shadow duration-300 flex-1 max-w-sm">
+            <div className="step-card bg-white/20 backdrop-blur-md p-6 rounded-3xl shadow-md hover:shadow-lg hover:scale-105 transition-all duration-300 flex-1 max-w-sm opacity-0 delay-200">
               <FaPaintBrush className="text-teal-400 text-4xl mb-4 mx-auto" />
-              <h3 className="text-xl font-bold mb-2 text-center text-gray-800">
+              <h3 className="text-xl font-semibold mb-2 text-center">
                 Exclusive Design
               </h3>
-              <p className="text-gray-600 text-center">
+              <p className="text-gray-200 text-center">
                 Mixture of imagination, experience, and professionalism is the secret of our design!
               </p>
             </div>
 
             {/* Card 3: Professional Team */}
-            <div className="bg-white p-6 rounded-3xl shadow-md hover:shadow-lg transition-shadow duration-300 flex-1 max-w-sm">
+            <div className="step-card bg-white/20 backdrop-blur-md p-6 rounded-3xl shadow-md hover:shadow-lg hover:scale-105 transition-all duration-300 flex-1 max-w-sm opacity-0 delay-400">
               <FaUsers className="text-teal-400 text-4xl mb-4 mx-auto" />
-              <h3 className="text-xl font-bold mb-2 text-center text-gray-800">
+              <h3 className="text-xl font-semibold mb-2 text-center">
                 Professional Team
               </h3>
-              <p className="text-gray-600 text-center">
+              <p className="text-gray-200 text-center">
                 We are proud of our amicable, professional, and always developing team!
               </p>
             </div>
           </div>
-
-          {/* Tagline (Commented Out) */}
-          {/* <div className="text-center mt-8">
-            <p className="text-3xl md:text-4xl font-dancing text-teal-400">
-              We Transform Your Home
-            </p>
-          </div> */}
         </div>
       </div>
     </section>

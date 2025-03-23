@@ -44,7 +44,7 @@ function Process() {
         </h2>
 
         {/* Description */}
-        <p className="max-w-2xl mx-auto text-lg md:text-xl bg-black/30 p-4 rounded-3xl mb-8 opacity-0 transition-opacity duration-500 delay-200">
+        <p className="max-w-2xl mx-auto text-lg md:text-xl bg-black/50 p-4 rounded-3xl mb-8 opacity-0 transition-opacity duration-500 delay-200">
           One of the reasons we became interior designers in the first place was because we love collecting and then putting it all together. Winterior Design talented team listens, researches, synthesizes, and implements.
         </p>
 

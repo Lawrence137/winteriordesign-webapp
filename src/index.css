@@ -125,3 +125,43 @@ html {
     margin-right: auto;
   }
 }
+
+/* about section */
+
+/* Animation for elements coming into view */
+.animate-in .opacity-0 {
+  opacity: 1 !important;
+}
+
+/* Delay classes for staggered animations */
+.delay-200 {
+  transition-delay: 200ms;
+}
+
+.delay-400 {
+  transition-delay: 400ms;
+}
+
+.delay-600 {
+  transition-delay: 600ms;
+}
+
+/* Parallax effect for the background */
+#about {
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+}
+
+/* Responsive adjustments for the cards */
+@media (max-width: 767px) {
+  #about .flex {
+    flex-direction: column;
+  }
+
+  #about .step-card {
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
