@@ -92,7 +92,7 @@ function Portfolio() {
           {showLeftArrow && (
             <button
               onClick={scrollLeft}
-              className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-teal-400 text-white p-2 rounded-full shadow-md hover:bg-teal-500 transition z-10"
+              className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-red-400 text-white p-2 rounded-full shadow-md hover:bg-red-500 transition z-10"
               aria-label="Scroll left"
             >
               <FaChevronLeft size={20} />
@@ -110,8 +110,8 @@ function Portfolio() {
                 onClick={() => setFilter(category)}
                 className={`filter-button px-6 py-3 rounded-3xl font-semibold text-sm md:text-base transition-all duration-300 whitespace-nowrap ${
                   filter === category
-                    ? 'bg-gradient-to-r from-teal-400 to-teal-600 text-white shadow-md active'
-                    : 'bg-white text-gray-600 border border-teal-400 hover:bg-teal-100'
+                    ? 'bg-gradient-to-r from-red-400 to-red-600 text-white shadow-md active'
+                    : 'bg-white text-gray-600 border border-red-400 hover:bg-teal-100'
                 }`}
               >
                 {category}
@@ -119,7 +119,7 @@ function Portfolio() {
             ))}
             {/* Sliding Highlight (Bottom Line) */}
             <div
-              className="absolute bottom-0 h-1 bg-teal-400 transition-all duration-300 ease-in-out"
+              className="absolute bottom-0 h-1 bg-red-400 transition-all duration-300 ease-in-out"
               style={{
                 left: `${activeButtonPosition.left}px`,
                 width: `${activeButtonPosition.width}px`,
@@ -131,7 +131,7 @@ function Portfolio() {
           {showRightArrow && (
             <button
               onClick={scrollRight}
-              className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-teal-400 text-white p-2 rounded-full shadow-md hover:bg-teal-500 transition z-10"
+              className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-red-400 text-white p-2 rounded-full shadow-md hover:bg-red-500 transition z-10"
               aria-label="Scroll right"
             >
               <FaChevronRight size={20} />

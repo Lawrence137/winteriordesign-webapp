@@ -99,9 +99,9 @@ function Hero() {
         </p>
         <a
           href="#contact"
-          className="bg-teal-300 hover:bg-teal-400 text-white px-6 py-3 rounded-lg shadow-md transition-all duration-300 "
+          className="bg-red-500 hover:bg-red-700 text-white px-6 py-3 rounded-lg shadow-md transition-all duration-300 "
         >
-          GET A FREE QUOTATION
+          ENQUIRE
         </a>
       </div>
 

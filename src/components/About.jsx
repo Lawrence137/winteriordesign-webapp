@@ -51,7 +51,7 @@ function About() {
           <div className="flex flex-col md:flex-row gap-6 justify-center">
             {/* Card 1: Reasonable Prices */}
             <div className="step-card bg-white/20 backdrop-blur-md p-6 rounded-3xl shadow-md hover:shadow-lg hover:scale-105 transition-all duration-300 flex-1 max-w-sm">
-              <FaMoneyBillWave className="text-teal-400 text-4xl mb-4 mx-auto" />
+              <FaMoneyBillWave className="text-red-500 text-4xl mb-4 mx-auto" />
               <h3 className="text-xl font-semibold mb-2 text-center">
                 Reasonable Prices
               </h3>
@@ -62,7 +62,7 @@ function About() {
 
             {/* Card 2: Exclusive Design */}
             <div className="step-card bg-white/20 backdrop-blur-md p-6 rounded-3xl shadow-md hover:shadow-lg hover:scale-105 transition-all duration-300 flex-1 max-w-sm">
-              <FaPaintBrush className="text-teal-400 text-4xl mb-4 mx-auto" />
+              <FaPaintBrush className="text-red-500 text-4xl mb-4 mx-auto" />
               <h3 className="text-xl font-semibold mb-2 text-center">
                 Exclusive Design
               </h3>
@@ -73,7 +73,7 @@ function About() {
 
             {/* Card 3: Professional Team */}
             <div className="step-card bg-white/20 backdrop-blur-md p-6 rounded-3xl shadow-md hover:shadow-lg hover:scale-105 transition-all duration-300 flex-1 max-w-sm">
-              <FaUsers className="text-teal-400 text-4xl mb-4 mx-auto" />
+              <FaUsers className="text-red-500 text-4xl mb-4 mx-auto" />
               <h3 className="text-xl font-semibold mb-2 text-center">
                 Professional Team
               </h3>

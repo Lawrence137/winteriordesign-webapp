@@ -24,7 +24,7 @@ function Process() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Step 1 */}
           <div className="step-card bg-white/10 backdrop-blur-md p-6 rounded-3xl shadow-md hover:shadow-lg hover:scale-105 transition-all duration-300">
-            <FaSearch className="text-teal-400 text-4xl mb-4 mx-auto" />
+            <FaSearch className="text-red-400 text-4xl mb-4 mx-auto" />
             <h3 className="text-xl font-semibold mb-2">Step 1</h3>
             <p className="text-gray-200">
               Identifying client needs and objectives.
@@ -33,7 +33,7 @@ function Process() {
 
           {/* Step 2 */}
           <div className="step-card bg-white/10 backdrop-blur-md p-6 rounded-3xl shadow-md hover:shadow-lg hover:scale-105 transition-all duration-300">
-            <FaCube className="text-teal-400 text-4xl mb-4 mx-auto" />
+            <FaCube className="text-red-400 text-4xl mb-4 mx-auto" />
             <h3 className="text-xl font-semibold mb-2">Step 2</h3>
             <p className="text-gray-200">
               Personalized 3D design samples to give you an idea of the look and feel.
@@ -42,7 +42,7 @@ function Process() {
 
           {/* Step 3 */}
           <div className="step-card bg-white/10 backdrop-blur-md p-6 rounded-3xl shadow-md hover:shadow-lg hover:scale-105 transition-all duration-300">
-            <FaCheckCircle className="text-teal-400 text-4xl mb-4 mx-auto" />
+            <FaCheckCircle className="text-red-400 text-4xl mb-4 mx-auto" />
             <h3 className="text-xl font-semibold mb-2">Step 3</h3>
             <p className="text-gray-200">
               Delivering client envisioned products. Our clients are always exemplary happy. Thank you for trusting us with your interiors.
