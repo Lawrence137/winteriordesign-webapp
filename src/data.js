@@ -31,12 +31,14 @@ export const portfolioItems = [
     id: 3,
     title: "Spray Paint Finish",
     description: "A vibrant kitchen with a spray paint finish.",
-    imageUrl: "/images/portfolio/spray-paint/spray-paint-kitchen-1.webp",
+    imageUrl: "/images/portfolio/spray-paint/spray1.jpg",
     category: "Spray Paint",
     imageFolder: [
-      "/images/portfolio/spray-paint/spray-paint-kitchen-1.webp",
-      "/images/portfolio/spray-paint/spray-paint-kitchen-2.webp",
-      "/images/portfolio/spray-paint/spray-paint-kitchen-3.webp",
+      "/images/portfolio/spray-paint/spray1.jpg",
+      "/images/portfolio/spray-paint/spray2.jpg",
+      "/images/portfolio/spray-paint/spray3.jpg",
+      "/images/portfolio/spray-paint/spray4.jpg",
+      "/images/portfolio/spray-paint/spray5.jpg",
     ],
   },
   {
