@@ -20,7 +20,7 @@ function About() {
         {/* Circular CEO Headshot */}
         <div className="w-40 h-40 sm:w-48 sm:h-48 md:w-56 md:h-56 overflow-hidden rounded-full shadow-md mb-8">
           <img
-            src="/images/ceo-headshot.webp"
+            src="/images/headshot/headshot.jpg"
             alt="CEO Headshot"
             className="w-full h-full object-cover"
           />
