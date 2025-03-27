@@ -9,6 +9,7 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 import WhatsappIcon from './components/WhatsappIcon';
 import Process from './components/Process';
+// import BeforeAfter from './components/BeforeAfter';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <About />
         <Portfolio />
         <Process />
+        {/* <BeforeAfter /> */}
         <Contact />
       </main>
       <Footer />

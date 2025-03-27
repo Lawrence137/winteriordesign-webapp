@@ -18,13 +18,13 @@ export const portfolioItems = [
     id: 2,
     title: "Solid Wood Kitchen",
     description: "A classic kitchen with solid wood cabinets.",
-    imageUrl: "/images/portfolio/solid-wood/solid-wood-kitchen-1.webp",
+    imageUrl: "/images/portfolio/solid-wood/solidwood1.jpg",
     category: "Solid Wood",
     imageFolder: [
-      "/images/portfolio/solid-wood/solid-wood-kitchen-1.webp",
-      "/images/portfolio/solid-wood/solid-wood-kitchen-2.webp",
-      "/images/portfolio/solid-wood/solid-wood-kitchen-3.webp",
-      "/images/portfolio/solid-wood/solid-wood-kitchen-4.webp",
+      "/images/portfolio/solid-wood/solidwood1.jpg",
+      "/images/portfolio/solid-wood/solidwood2.jpg",
+      "/images/portfolio/solid-wood/solidwood3.jpg",
+      "/images/portfolio/solid-wood/solidwood4.jpg",
     ],
   },
   {
