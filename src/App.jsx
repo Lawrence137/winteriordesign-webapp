@@ -1,27 +1,31 @@
-// import { useState } from 'react'
+import { Routes, Route } from 'react-router-dom'
 import './App.css';
 import './index.css';
 import Header from './components/Header';
-import Hero from './components/Hero';
-import About from './components/About';
-import Portfolio from './components/Portfolio';
-import Contact from './components/Contact';
 import Footer from './components/Footer';
 import WhatsappIcon from './components/WhatsappIcon';
-import Process from './components/Process';
-// import BeforeAfter from './components/BeforeAfter';
+
+// Page Components
+import Home from './pages/Home';
+import Portfolio from './pages/Portfolio';
+import About from './pages/About';
+import Contact from './pages/Contact';
+import ProjectDetail from './pages/ProjectDetail';
+import CategoryPortfolio from './pages/CategoryPortfolio';
 
 function App() {
   return (
     <div className="App">
       <Header />
       <main>
-        <Hero />
-        <About />
-        <Portfolio />
-        <Process />
-        {/* <BeforeAfter /> */}
-        <Contact />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/portfolio" element={<Portfolio />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/portfolio/:id" element={<ProjectDetail />} />
+          <Route path="/portfolio/category/:category" element={<CategoryPortfolio />} />
+        </Routes>
       </main>
       <Footer />
       <WhatsappIcon />

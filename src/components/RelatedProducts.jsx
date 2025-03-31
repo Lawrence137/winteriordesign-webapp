@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const categories = [
@@ -25,33 +24,23 @@ const categories = [
   }
 ];
 
-function Portfolio() {
-  const [hoveredCategory, setHoveredCategory] = useState(null);
+function RelatedProducts({ currentCategory }) {
+  // Filter out the current category and get other categories
+  const relatedCategories = categories.filter(
+    category => category.title.toLowerCase() !== currentCategory.toLowerCase()
+  );
 
   return (
     <section className="py-16 bg-gray-50">
       <div className="container mx-auto px-4">
-        {/* Header Section */}
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-dancing font-bold text-gray-800 mb-4">
-            Our Work
-          </h2>
-          <p className="max-w-2xl mx-auto text-lg text-gray-600">
-            Explore our diverse portfolio of custom interior solutions
-          </p>
-        </div>
-
-        {/* Main Categories Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {categories.map((category) => (
-            <div 
-              key={category.id}
-              className="relative group"
-              onMouseEnter={() => setHoveredCategory(category.id)}
-              onMouseLeave={() => setHoveredCategory(null)}
-            >
+        <h2 className="text-3xl font-bold mb-8 text-center">Related Categories</h2>
+        
+        {/* Related Categories Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {relatedCategories.map((category) => (
+            <div key={category.id} className="relative">
               {/* Category Card */}
-              <div className="relative h-[400px] overflow-hidden rounded-lg">
+              <div className="relative h-[300px] overflow-hidden rounded-lg">
                 {/* Dark Overlay */}
                 <div className="absolute inset-0 bg-black/50 z-10" />
                 
@@ -64,7 +53,7 @@ function Portfolio() {
 
                 {/* Content Container */}
                 <div className="absolute inset-0 z-20 flex flex-col">
-                  {/* Title and Description - At Bottom for Mobile, Center for Desktop */}
+                  {/* Title and Description */}
                   <div className="mt-auto p-6 text-white">
                     <h3 className="text-2xl font-bold mb-2">{category.title}</h3>
                     <p className="text-sm opacity-90 mb-6">{category.description}</p>
@@ -87,4 +76,4 @@ function Portfolio() {
   );
 }
 
-export default Portfolio;
+export default RelatedProducts; 

@@ -4,13 +4,32 @@ function About() {
   return (
     <section
       id="about"
-      className="py-16 scroll-mt-16 relative bg-cover bg-center text-white"
-      style={{
-        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/images/aboutbg.webp')`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-      }}
+      className="py-16 scroll-mt-16 relative text-white"
     >
+      {/* Desktop background */}
+      <div 
+        className="hidden md:block absolute inset-0 bg-cover bg-center"
+        style={{
+          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/images/aboutbg.webp')`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+          backgroundAttachment: 'fixed',
+        }}
+      />
+
+      {/* Mobile background */}
+      <div 
+        className="block md:hidden absolute inset-0"
+      >
+        <img
+          src="/images/aboutbg.webp"
+          alt="Background"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-black/50" />
+      </div>
+
       <div className="container mx-auto px-4 flex flex-col items-center justify-center min-h-[calc(100vh-4rem)] relative">
         {/* Title */}
         <h2 className="text-3xl md:text-4xl font-dancing font-bold mb-6">

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { FaBars, FaTimes } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -8,13 +9,13 @@ function Header() {
     <header className="bg-white shadow-md fixed top-0 w-full z-50">
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
         {/* Logo */}
-        <a href="#home">
+        <Link to="/">
           <img
             src="/images/WinteriorLogo2.png" // Update this to the actual path if different
             alt="Winterior Design Logo"
             className="h-13 md:h-17 w-auto"
           />
-        </a>
+        </Link>
 
         {/* Hamburger Menu Button */}
         <button
@@ -30,40 +31,40 @@ function Header() {
         >
           <ul className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-6 p-4 md:p-0">
             <li>
-              <a
-                href="#home"
+              <Link
+                to="/"
                 className="hover:text-gray-600"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Home
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href="#about"
+              <Link
+                to="/about"
                 className="hover:text-gray-600"
                 onClick={() => setIsMenuOpen(false)}
               >
                 About
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href="#portfolio"
+              <Link
+                to="/portfolio"
                 className="hover:text-gray-600"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Portfolio
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href="#contact"
+              <Link
+                to="/contact"
                 className="hover:text-gray-600"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Contact
-              </a>
+              </Link>
             </li>
           </ul>
         </nav>
