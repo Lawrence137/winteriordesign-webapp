@@ -240,7 +240,7 @@ function CategoryPortfolio() {
         <div className="h-24 relative shadow-lg">
           <div className="absolute inset-0 bg-cover bg-center" style={{ 
             backgroundImage: `url(${heroBackgroundImage})`,
-            filter: 'brightness(0.4)'
+            filter: 'brightness(0.3) blur(2px)'
           }} />
           <div className="absolute inset-0 flex items-center justify-center z-10">
             <div className="flex space-x-4 sm:space-x-6">
@@ -261,7 +261,7 @@ function CategoryPortfolio() {
       <div id="hero-section" className="relative h-[50vh] bg-cover bg-center" style={{ 
         backgroundImage: `url(${heroBackgroundImage})` 
       }}>
-        <div className="absolute inset-0 bg-black/50" />
+        <div className="absolute inset-0 backdrop-blur-[2px] bg-black/60" />
         <div className="container mx-auto px-4 h-full flex flex-col justify-center items-center text-white relative z-10">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">{displayCategory}</h1>
           <p className="text-xl text-center max-w-2xl mb-12">
