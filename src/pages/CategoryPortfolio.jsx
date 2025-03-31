@@ -1,9 +1,82 @@
 import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import Modal from '../components/Modal';
-import { FaArrowLeft, FaHome } from 'react-icons/fa';
+import { FaArrowLeft, FaHome, FaInfoCircle, FaTimes } from 'react-icons/fa';
 import { portfolioItems } from '../data';
 import RelatedProducts from '../components/RelatedProducts';
+
+const kitchenLayouts = [
+  {
+    id: 1,
+    name: 'L-Shaped Kitchen Cabinets',
+    description: 'Perfect for open floor plans, offering plenty of counter space and a natural work triangle.',
+    image: '/images/layouts/L-shaped-kitchen.jpg',
+    details: 'The L-shaped layout is one of the most popular kitchen designs, perfect for both small and large spaces. It provides an efficient work triangle and plenty of counter space for food preparation. This layout works well in open-concept homes and can accommodate an island or dining table in the center.',
+    features: [
+      'Efficient work triangle',
+      'Plenty of counter space',
+      'Good for open floor plans',
+      'Can accommodate an island',
+      'Perfect for small to medium kitchens'
+    ]
+  },
+  {
+    id: 2,
+    name: 'U-Shaped Kitchen Cabinets',
+    description: 'Maximizes storage and counter space with cabinets on three walls.',
+    image: '/images/layouts/U-shaped-kitchen.jpg',
+    details: 'The U-shaped kitchen layout offers maximum storage and counter space, making it ideal for larger kitchens. With cabinets and appliances on three walls, you have everything within easy reach. This layout is perfect for multiple cooks working together.',
+    features: [
+      'Maximum storage space',
+      'Plenty of counter space',
+      'Ideal for multiple cooks',
+      'Perfect for larger kitchens',
+      'Great for entertaining'
+    ]
+  },
+  {
+    id: 3,
+    name: 'Island Kitchen Cabinets',
+    description: 'Adds extra workspace and storage while creating a social hub in your kitchen.',
+    image: '/images/layouts/island-kitchen.jpg',
+    details: 'An island kitchen layout adds a central workspace that can serve multiple functions. It provides additional storage, seating, and preparation space while creating a natural gathering spot for family and friends.',
+    features: [
+      'Additional workspace',
+      'Extra storage',
+      'Social gathering spot',
+      'Can include seating',
+      'Perfect for open-concept homes'
+    ]
+  },
+  {
+    id: 4,
+    name: 'One Wall Kitchen Cabinets',
+    description: 'Ideal for small spaces, with all cabinets and appliances along a single wall.',
+    image: '/images/layouts/one-wall-kitchen.jpg',
+    details: 'The one-wall kitchen layout is perfect for small spaces and studio apartments. It keeps everything in a single line, making it efficient and easy to navigate. This layout is also great for open-concept living spaces.',
+    features: [
+      'Space-efficient',
+      'Perfect for small kitchens',
+      'Easy to navigate',
+      'Great for open-concept spaces',
+      'Ideal for studio apartments'
+    ]
+  },
+  {
+    id: 5,
+    name: 'Peninsula Kitchen Cabinets',
+    description: 'Similar to an island layout but connected to a wall, perfect for medium-sized kitchens.',
+    image: '/images/layouts/peninsula-kitchen.jpg',
+    details: 'A peninsula kitchen layout extends from a wall or cabinet run, creating additional workspace and storage. It provides many of the benefits of an island while being more space-efficient and offering better traffic flow.',
+    features: [
+      'Additional workspace',
+      'Better traffic flow',
+      'Space-efficient',
+      'Can include seating',
+      'Perfect for medium-sized kitchens'
+    ]
+  }
+];
 
 // This would come from your data file
 const categoryData = {
@@ -113,6 +186,7 @@ const relatedCategories = [
 function CategoryPortfolio() {
   const { category } = useParams();
   const [selectedStyle, setSelectedStyle] = useState(null);
+  const [selectedLayout, setSelectedLayout] = useState(null);
   
   // Scroll to top when component mounts or category changes
   useEffect(() => {
@@ -164,6 +238,55 @@ function CategoryPortfolio() {
           </div>
         </div>
       </div>
+
+      {/* Kitchen Layouts Section - Only shown for kitchen-cabinets category */}
+      {category === 'kitchen-cabinets' && (
+        <div className="bg-gray-50 py-16">
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">Kitchen Cabinet Layouts</h2>
+              <p className="text-gray-600 max-w-2xl mx-auto">
+                Choose from our various kitchen cabinet layouts to find the perfect design for your space
+              </p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {kitchenLayouts.map((layout) => (
+                <div 
+                  key={layout.id} 
+                  className="bg-white rounded-xl shadow-lg overflow-hidden group hover:shadow-xl transition-shadow duration-300 cursor-pointer"
+                  onClick={() => setSelectedLayout(layout)}
+                >
+                  <div className="relative h-64">
+                    <img
+                      src={layout.image}
+                      alt={layout.name}
+                      className="w-full h-full object-cover"
+                    />
+                    {/* Desktop hover overlay */}
+                    <div className="absolute inset-0 hidden md:flex items-center justify-center bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <span className="text-white text-lg font-semibold flex items-center gap-2">
+                        <FaInfoCircle />
+                        View Details
+                      </span>
+                    </div>
+                    {/* Mobile and tablet permanent overlay */}
+                    <div className="absolute inset-0 md:hidden flex items-center justify-center bg-black/40">
+                      <span className="text-white text-lg font-semibold flex items-center gap-2">
+                        <FaInfoCircle />
+                        View Details
+                      </span>
+                    </div>
+                  </div>
+                  <div className="p-6">
+                    <h3 className="text-xl font-bold mb-2">{layout.name}</h3>
+                    <p className="text-gray-600">{layout.description}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Styles Grid */}
       <div className="container mx-auto px-4 py-16">
@@ -219,6 +342,40 @@ function CategoryPortfolio() {
           title={selectedStyle.name}
           onClose={() => setSelectedStyle(null)}
         />
+      )}
+
+      {/* Modal for showing layout details */}
+      {selectedLayout && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
+          <div className="bg-white rounded-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+            <div className="relative">
+              <img
+                src={selectedLayout.image}
+                alt={selectedLayout.name}
+                className="w-full h-96 object-cover rounded-t-xl"
+              />
+              <button
+                onClick={() => setSelectedLayout(null)}
+                className="absolute top-4 right-4 bg-white text-gray-900 p-2 rounded-full hover:bg-gray-100 transition-colors"
+              >
+                <FaTimes size={20} />
+              </button>
+            </div>
+            <div className="p-6">
+              <h2 className="text-3xl font-bold mb-4">{selectedLayout.name}</h2>
+              <p className="text-gray-600 mb-6">{selectedLayout.details}</p>
+              <h3 className="text-xl font-semibold mb-3">Key Features:</h3>
+              <ul className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                {selectedLayout.features.map((feature, index) => (
+                  <li key={index} className="flex items-center gap-2">
+                    <span className="text-blue-600">•</span>
+                    {feature}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
       )}
     </div>
   );
