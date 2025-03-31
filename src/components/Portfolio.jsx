@@ -23,6 +23,12 @@ const categories = [
     image: portfolioItems.find(item => item.category === 'Closets & Wardrobes')?.imageUrl || '/images/categories/wardrobe.webp',
     description: 'Maximize your storage space with style',
     styles: ['Walk-in', 'Built-in', 'Sliding', 'Corner Units']
+  },
+  {
+    id: 4,
+    title: 'TV Units',
+    image: portfolioItems.find(item => item.category === 'TV Units')?.imageUrl || '/images/categories/tv-units.webp',
+    description: 'Modern entertainment units that combine style and functionality'
   }
 ];
 
