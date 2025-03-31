@@ -2,16 +2,17 @@
 export const portfolioItems = [
   {
     id: 1,
-    title: "Modern Kitchen",
-    description: "A sleek and modern kitchen design with Mela Edge finish.",
-    imageUrl: "/images/portfolio/mela-edge/modern-kitchen-1.webp",
-    category: "Mela Edge",
+    title: "Cleanline Handless",
+    description: "A sleek and modern kitchen design with Cleanline Handless in high gloss finish.",
+    imageUrl: "/images/portfolio/cleanline-handless/cleanline-handless1.jpg",
+    category: "Cleanline Handless",
     imageFolder: [
-      "/images/portfolio/mela-edge/modern-kitchen-1.webp",
-      "/images/portfolio/mela-edge/modern-kitchen-2.webp",
-      "/images/portfolio/mela-edge/modern-kitchen-3.webp",
-      "/images/portfolio/mela-edge/modern-kitchen-4.webp",
-      "/images/portfolio/mela-edge/modern-kitchen-5.webp",
+      "/images/portfolio/cleanline-handless/cleanline-handless1.jpg",
+      "/images/portfolio/cleanline-handless/cleanline-handless2.jpg",
+      "/images/portfolio/cleanline-handless/cleanline-handless3.jpg",
+      "/images/portfolio/cleanline-handless/cleanline-handless4.jpg",
+      "/images/portfolio/cleanline-handless/cleanline-handless5.jpg",
+      "/images/portfolio/cleanline-handless/cleanline-handless6.jpg"
     ],
   },
   {

@@ -8,7 +8,7 @@ const categories = [
     title: 'Kitchen Cabinets',
     image: portfolioItems.find(item => item.category === 'Solid Wood')?.imageUrl || '/images/categories/kitchen.webp',
     description: 'Custom kitchen solutions for your home',
-    styles: ['Mela Edge', 'Solid Wood', 'Spray Paint', 'PVC Wrap and High Gloss']
+    styles: ['Cleanline Handless', 'Solid Wood', 'Spray Paint', 'PVC Wrap and High Gloss']
   },
   {
     id: 2,

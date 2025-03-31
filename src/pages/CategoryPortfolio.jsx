@@ -13,10 +13,10 @@ const categoryData = {
     styles: [
       {
         id: 1,
-        name: 'Mela Edge',
-        description: 'Modern and sleek kitchen designs with clean lines',
-        image: portfolioItems.find(item => item.category === 'Mela Edge')?.imageUrl || '',
-        gallery: portfolioItems.find(item => item.category === 'Mela Edge')?.imageFolder || []
+        name: 'Cleanline Handless',
+        description: 'Modern and sleek kitchen designs with Cleanline Handless in high gloss finish',
+        image: portfolioItems.find(item => item.category === 'Cleanline Handless')?.imageUrl || '',
+        gallery: portfolioItems.find(item => item.category === 'Cleanline Handless')?.imageFolder || []
       },
       {
         id: 2,
