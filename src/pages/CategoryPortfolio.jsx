@@ -243,14 +243,14 @@ function CategoryPortfolio() {
             filter: 'brightness(0.4)'
           }} />
           <div className="absolute inset-0 flex items-center justify-center z-10">
-            <div className="flex space-x-6 py-[26px]">
-              <Link to="/" className="flex items-center space-x-2 bg-white text-gray-900 px-6 py-3 rounded-full hover:bg-gray-100 transition shadow-md">
-                <FaHome className="text-lg" />
-                <span className="text-base">Home</span>
+            <div className="flex space-x-4 sm:space-x-6">
+              <Link to="/" className="flex items-center space-x-2 bg-white text-gray-900 px-4 sm:px-6 py-2 sm:py-3 rounded-full hover:bg-gray-100 transition shadow-md text-sm sm:text-base">
+                <FaHome className="text-base sm:text-lg" />
+                <span>Home</span>
               </Link>
-              <Link to="/portfolio" className="flex items-center space-x-2 bg-transparent border-2 border-white text-white px-6 py-3 rounded-full hover:bg-white/10 transition shadow-md">
-                <FaArrowLeft className="text-lg" />
-                <span className="text-base">Back to Portfolio</span>
+              <Link to="/portfolio" className="flex items-center space-x-2 bg-transparent border-2 border-white text-white px-4 sm:px-6 py-2 sm:py-3 rounded-full hover:bg-white/10 transition shadow-md text-sm sm:text-base">
+                <FaArrowLeft className="text-base sm:text-lg" />
+                <span>Back to Portfolio</span>
               </Link>
             </div>
           </div>
@@ -267,14 +267,14 @@ function CategoryPortfolio() {
           <p className="text-xl text-center max-w-2xl mb-12">
             {categoryInfo.description}
           </p>
-          <div id="hero-buttons" className="flex space-x-6">
-            <Link to="/" className="flex items-center space-x-2 bg-white text-gray-900 px-6 py-3 rounded-full hover:bg-gray-100 transition shadow-md">
-              <FaHome className="text-lg" />
-              <span className="text-base">Home</span>
+          <div id="hero-buttons" className="flex space-x-4 sm:space-x-6">
+            <Link to="/" className="flex items-center space-x-2 bg-white text-gray-900 px-4 sm:px-6 py-2 sm:py-3 rounded-full hover:bg-gray-100 transition shadow-md text-sm sm:text-base">
+              <FaHome className="text-base sm:text-lg" />
+              <span>Home</span>
             </Link>
-            <Link to="/portfolio" className="flex items-center space-x-2 bg-transparent border-2 border-white text-white px-6 py-3 rounded-full hover:bg-white/10 transition shadow-md">
-              <FaArrowLeft className="text-lg" />
-              <span className="text-base">Back to Portfolio</span>
+            <Link to="/portfolio" className="flex items-center space-x-2 bg-transparent border-2 border-white text-white px-4 sm:px-6 py-2 sm:py-3 rounded-full hover:bg-white/10 transition shadow-md text-sm sm:text-base">
+              <FaArrowLeft className="text-base sm:text-lg" />
+              <span>Back to Portfolio</span>
             </Link>
           </div>
         </div>
