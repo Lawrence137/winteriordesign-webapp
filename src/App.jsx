@@ -1,4 +1,5 @@
 import { Routes, Route } from 'react-router-dom'
+import { Analytics } from '@vercel/analytics/next';
 import './App.css';
 import './index.css';
 import Header from './components/Header';
@@ -27,6 +28,7 @@ function App() {
           <Route path="/portfolio/category/:category" element={<CategoryPortfolio />} />
         </Routes>
       </main>
+      <Analytics />
       <Footer />
       <WhatsappIcon />
     </div>
