@@ -88,6 +88,21 @@ export const portfolioItems = [
       "/images/portfolio/wardrobes/wardrobe6.jpg",
       "/images/portfolio/wardrobes/wardrobe7.jpg",
     ],
+  },
+  {
+    id: 7,
+    title: "TV Units",
+    description: "Modern entertainment units that combine style and functionality",
+    imageUrl: "/images/portfolio/tv-units/tv-units1.jpg",
+    category: "TV Units",
+    imageFolder: [
+      "/images/portfolio/tv-units/tv-units1.jpg",
+      "/images/portfolio/tv-units/tv-units2.jpg",
+      "/images/portfolio/tv-units/tv-units3.jpg",
+      "/images/portfolio/tv-units/tv-units4.jpg",
+      "/images/portfolio/tv-units/tv-units5.jpg",
+      "/images/portfolio/tv-units/tv-units6.jpg"
+    ],
   }
   // Add more items as needed
 ];

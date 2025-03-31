@@ -67,6 +67,19 @@ const categoryData = {
       }
     ]
   },
+  'tv-units': {
+    title: 'TV Units',
+    description: 'Modern entertainment units that combine style and functionality',
+    styles: [
+      {
+        id: 1,
+        name: 'TV Units',
+        description: 'Modern entertainment units that combine style and functionality',
+        image: portfolioItems.find(item => item.category === 'TV Units')?.imageUrl || '',
+        gallery: portfolioItems.find(item => item.category === 'TV Units')?.imageFolder || []
+      }
+    ]
+  },
   // Add other categories here
 };
 
@@ -74,27 +87,27 @@ const relatedCategories = [
   {
     id: 1,
     title: 'Kitchen Cabinets',
-    image: '/images/kitchen.webp',
+    image: portfolioItems.find(item => item.category === 'Solid Wood')?.imageUrl || '/images/kitchen.webp',
     link: '/portfolio/category/kitchen-cabinets'
   },
   {
     id: 2,
     title: 'Closets & Wardrobes',
-    image: '/images/wardrobe.webp',
+    image: portfolioItems.find(item => item.category === 'Closets & Wardrobes')?.imageUrl || '/images/wardrobe.webp',
     link: '/portfolio/category/closets-and-wardrobes'
   },
   {
     id: 3,
-    title: 'Living Room Furniture',
-    image: '/images/living.webp',
-    description: 'The entertainment unit is the focal point of almost every living room. It adds a modern updated look and functionality to the living area providing style and elegance.',
-    link: '/portfolio/category/living-room-furniture'
+    title: 'TV Units',
+    image: portfolioItems.find(item => item.category === 'TV Units')?.imageUrl || '/images/tv-units.webp',
+    description: 'Modern entertainment units that combine style and functionality',
+    link: '/portfolio/category/tv-units'
   },
   {
     id: 4,
-    title: 'Office Furniture',
-    image: '/images/office.webp',
-    link: '/portfolio/category/office-furniture'
+    title: 'Bathroom Vanities',
+    image: portfolioItems.find(item => item.category === 'Bathroom Vanities')?.imageUrl || '/images/bathroom.webp',
+    link: '/portfolio/category/bathroom-vanities'
   }
 ];
 
