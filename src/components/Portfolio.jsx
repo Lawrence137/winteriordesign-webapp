@@ -29,6 +29,10 @@ const categories = [
 function Portfolio() {
   const [hoveredCategory, setHoveredCategory] = useState(null);
 
+  const getCategoryUrl = (title) => {
+    return title.toLowerCase().replace(/\s*&\s*/g, '-and-').replace(/\s+/g, '-');
+  };
+
   return (
     <section className="py-16 bg-gray-50">
       <div className="container mx-auto px-4">
@@ -72,7 +76,7 @@ function Portfolio() {
                     
                     {/* Permanent Discover More Button */}
                     <Link
-                      to={`/portfolio/category/${category.title.toLowerCase().replace(/\s+/g, '-')}`}
+                      to={`/portfolio/category/${getCategoryUrl(category.title)}`}
                       className="inline-block w-full md:w-auto text-center bg-white text-gray-900 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition-colors shadow-lg"
                     >
                       Discover More

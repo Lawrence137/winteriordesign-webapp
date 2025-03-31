@@ -54,6 +54,19 @@ const categoryData = {
       }
     ]
   },
+  'closets-and-wardrobes': {
+    title: 'Closets & Wardrobes',
+    description: 'Maximize your storage space with style',
+    styles: [
+      {
+        id: 1,
+        name: 'Closets & Wardrobes',
+        description: 'Maximize your storage space with style',
+        image: portfolioItems.find(item => item.category === 'Closets & Wardrobes')?.imageUrl || '',
+        gallery: portfolioItems.find(item => item.category === 'Closets & Wardrobes')?.imageFolder || []
+      }
+    ]
+  },
   // Add other categories here
 };
 
@@ -68,7 +81,7 @@ const relatedCategories = [
     id: 2,
     title: 'Closets & Wardrobes',
     image: '/images/wardrobe.webp',
-    link: '/portfolio/category/closets-wardrobes'
+    link: '/portfolio/category/closets-and-wardrobes'
   },
   {
     id: 3,
@@ -95,7 +108,8 @@ function CategoryPortfolio() {
   const displayCategory = category
     .split('-')
     .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-    .join(' ');
+    .join(' ')
+    .replace('And', '&');
 
   if (!categoryInfo) {
     return (

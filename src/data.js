@@ -66,6 +66,22 @@ export const portfolioItems = [
       "/images/portfolio/bathroom-vanities/bath-vanity3.jpg",
       "/images/portfolio/bathroom-vanities/bath-vanity4.jpg",
     ],
+  },
+  {
+    id: 6,
+    title: "Closets & Wardrobes",
+    description: "Maximize your storage space with style",
+    imageUrl: "/images/portfolio/wardrobes/wardrobe1.jpg",
+    category: "Closets & Wardrobes",
+    imageFolder: [
+      "/images/portfolio/wardrobes/wardrobe1.jpg",
+      "/images/portfolio/wardrobes/wardrobe2.jpg",
+      "/images/portfolio/wardrobes/wardrobe3.jpg",
+      "/images/portfolio/wardrobes/wardrobe4.jpg",
+      "/images/portfolio/wardrobes/wardrobe5.jpg",
+      "/images/portfolio/wardrobes/wardrobe6.jpg",
+      "/images/portfolio/wardrobes/wardrobe7.jpg",
+    ],
   }
   // Add more items as needed
 ];
