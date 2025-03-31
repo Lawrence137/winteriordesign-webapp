@@ -8,7 +8,7 @@ const categories = [
     title: 'Kitchen Cabinets',
     image: portfolioItems.find(item => item.category === 'Solid Wood')?.imageUrl || '/images/categories/kitchen.webp',
     description: 'Custom kitchen solutions for your home',
-    styles: ['Cleanline Handless', 'Solid Wood', 'Spray Paint', 'PVC Wrap and High Gloss']
+    styles: ['Mela Edge', 'Solid Wood', 'Spray Paint', 'PVC Wrap and High Gloss']
   },
   {
     id: 2,
@@ -23,13 +23,6 @@ const categories = [
     image: portfolioItems.find(item => item.category === 'Closets & Wardrobes')?.imageUrl || '/images/categories/wardrobe.webp',
     description: 'Maximize your storage space with style',
     styles: ['Walk-in', 'Built-in', 'Sliding', 'Corner Units']
-  },
-  {
-    id: 4,
-    title: 'TV Units',
-    image: portfolioItems.find(item => item.category === 'TV Units')?.imageUrl || '/images/categories/tv-units.webp',
-    description: 'Modern entertainment units that combine style and functionality',
-    styles: ['Wall Mounted', 'Floor Standing', 'Corner Units', 'Entertainment Centers']
   }
 ];
 

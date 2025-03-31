@@ -1,4 +1,5 @@
-import { Link } from 'react-router-dom';
+import { useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { portfolioItems } from '../data';
 
 const categories = [
@@ -33,6 +34,13 @@ const categories = [
 ];
 
 function RelatedProducts({ currentCategory }) {
+  const location = useLocation();
+
+  // Scroll to top when location changes
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [location]);
+
   // Filter out the current category and get other categories
   const relatedCategories = categories.filter(
     category => category.title.toLowerCase() !== currentCategory.toLowerCase()

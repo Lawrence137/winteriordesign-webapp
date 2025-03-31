@@ -1,7 +1,7 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import Modal from '../components/Modal';
-import { FaArrowLeft, FaArrowRight, FaHome, FaCalendarAlt, FaUser } from 'react-icons/fa';
+import { FaArrowLeft, FaHome } from 'react-icons/fa';
 import { portfolioItems } from '../data';
 import RelatedProducts from '../components/RelatedProducts';
 
@@ -14,30 +14,30 @@ const categoryData = {
       {
         id: 1,
         name: 'Cleanline Handless',
-        description: 'Modern and sleek kitchen designs with Cleanline Handless in high gloss finish',
-        image: portfolioItems.find(item => item.category === 'Cleanline Handless')?.imageUrl || '',
-        gallery: portfolioItems.find(item => item.category === 'Cleanline Handless')?.imageFolder || []
+        description: 'A sleek and modern kitchen design with Cleanline Handless in high gloss finish.',
+        image: portfolioItems.find(item => item.category === 'Cleanline Handless')?.imageUrl,
+        gallery: portfolioItems.find(item => item.category === 'Cleanline Handless')?.imageFolder
       },
       {
         id: 2,
         name: 'Solid Wood',
         description: 'Traditional and timeless solid wood kitchens',
-        image: portfolioItems.find(item => item.category === 'Solid Wood')?.imageUrl || '',
-        gallery: portfolioItems.find(item => item.category === 'Solid Wood')?.imageFolder || []
+        image: portfolioItems.find(item => item.category === 'Solid Wood')?.imageUrl,
+        gallery: portfolioItems.find(item => item.category === 'Solid Wood')?.imageFolder
       },
       {
         id: 3,
         name: 'Spray Paint',
         description: 'Custom colored cabinets for a unique look',
-        image: portfolioItems.find(item => item.category === 'Spray Paint')?.imageUrl || '',
-        gallery: portfolioItems.find(item => item.category === 'Spray Paint')?.imageFolder || []
+        image: portfolioItems.find(item => item.category === 'Spray Paint')?.imageUrl,
+        gallery: portfolioItems.find(item => item.category === 'Spray Paint')?.imageFolder
       },
       {
         id: 4,
         name: 'PVC Wrap and High Gloss',
         description: 'Modern and sleek finishes with PVC wrap and high gloss surfaces',
-        image: portfolioItems.find(item => item.category === 'PVC Wrap and High Gloss')?.imageUrl || '',
-        gallery: portfolioItems.find(item => item.category === 'PVC Wrap and High Gloss')?.imageFolder || []
+        image: portfolioItems.find(item => item.category === 'PVC Wrap and High Gloss')?.imageUrl,
+        gallery: portfolioItems.find(item => item.category === 'PVC Wrap and High Gloss')?.imageFolder
       }
     ]
   },
@@ -49,8 +49,8 @@ const categoryData = {
         id: 1,
         name: 'Bathroom Vanities',
         description: 'Storage spaces are critical in any bathroom design',
-        image: portfolioItems.find(item => item.category === 'Bathroom Vanities')?.imageUrl || '',
-        gallery: portfolioItems.find(item => item.category === 'Bathroom Vanities')?.imageFolder || []
+        image: portfolioItems.find(item => item.category === 'Bathroom Vanities')?.imageUrl,
+        gallery: portfolioItems.find(item => item.category === 'Bathroom Vanities')?.imageFolder
       }
     ]
   },
@@ -62,8 +62,8 @@ const categoryData = {
         id: 1,
         name: 'Closets & Wardrobes',
         description: 'Maximize your storage space with style',
-        image: portfolioItems.find(item => item.category === 'Closets & Wardrobes')?.imageUrl || '',
-        gallery: portfolioItems.find(item => item.category === 'Closets & Wardrobes')?.imageFolder || []
+        image: portfolioItems.find(item => item.category === 'Closets & Wardrobes')?.imageUrl,
+        gallery: portfolioItems.find(item => item.category === 'Closets & Wardrobes')?.imageFolder
       }
     ]
   },
@@ -75,39 +75,38 @@ const categoryData = {
         id: 1,
         name: 'TV Units',
         description: 'Modern entertainment units that combine style and functionality',
-        image: portfolioItems.find(item => item.category === 'TV Units')?.imageUrl || '',
-        gallery: portfolioItems.find(item => item.category === 'TV Units')?.imageFolder || []
+        image: portfolioItems.find(item => item.category === 'TV Units')?.imageUrl,
+        gallery: portfolioItems.find(item => item.category === 'TV Units')?.imageFolder
       }
     ]
-  },
-  // Add other categories here
+  }
 };
 
 const relatedCategories = [
   {
     id: 1,
     title: 'Kitchen Cabinets',
-    image: portfolioItems.find(item => item.category === 'Solid Wood')?.imageUrl || '/images/kitchen.webp',
+    image: '/images/kitchen.webp',
     link: '/portfolio/category/kitchen-cabinets'
   },
   {
     id: 2,
     title: 'Closets & Wardrobes',
-    image: portfolioItems.find(item => item.category === 'Closets & Wardrobes')?.imageUrl || '/images/wardrobe.webp',
+    image: '/images/wardrobe.webp',
     link: '/portfolio/category/closets-and-wardrobes'
   },
   {
     id: 3,
-    title: 'TV Units',
-    image: portfolioItems.find(item => item.category === 'TV Units')?.imageUrl || '/images/tv-units.webp',
-    description: 'Modern entertainment units that combine style and functionality',
-    link: '/portfolio/category/tv-units'
+    title: 'Living Room Furniture',
+    image: '/images/living.webp',
+    description: 'The entertainment unit is the focal point of almost every living room. It adds a modern updated look and functionality to the living area providing style and elegance.',
+    link: '/portfolio/category/living-room-furniture'
   },
   {
     id: 4,
-    title: 'Bathroom Vanities',
-    image: portfolioItems.find(item => item.category === 'Bathroom Vanities')?.imageUrl || '/images/bathroom.webp',
-    link: '/portfolio/category/bathroom-vanities'
+    title: 'Office Furniture',
+    image: '/images/office.webp',
+    link: '/portfolio/category/office-furniture'
   }
 ];
 
@@ -115,6 +114,11 @@ function CategoryPortfolio() {
   const { category } = useParams();
   const [selectedStyle, setSelectedStyle] = useState(null);
   
+  // Scroll to top when component mounts or category changes
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [category]);
+
   const categoryInfo = categoryData[category];
 
   // Format the category name for display (convert from URL format to display format)
@@ -136,11 +140,11 @@ function CategoryPortfolio() {
     <div className="pt-20">
       {/* Hero Section */}
       <div className="relative h-[40vh] bg-cover bg-center" style={{ 
-        backgroundImage: `url(${
+        backgroundImage: `url(${portfolioItems.find(item => 
           category === 'kitchen-cabinets' 
-            ? portfolioItems.find(item => item.category === 'Solid Wood')?.imageUrl 
-            : categoryInfo.styles[0].image
-        })` 
+            ? item.category === 'Solid Wood'
+            : item.category === categoryInfo.styles[0].name
+        )?.imageUrl || '/images/portfolio/default.jpg'})` 
       }}>
         <div className="absolute inset-0 bg-black/50" />
         <div className="container mx-auto px-4 h-full flex flex-col justify-center items-center text-white relative z-10">
@@ -168,7 +172,7 @@ function CategoryPortfolio() {
           {categoryInfo.styles.map((style) => (
             <div 
               key={style.id}
-              className="bg-white rounded-xl shadow-lg overflow-hidden group"
+              className="bg-white rounded-xl shadow-lg overflow-hidden group cursor-pointer"
               onClick={() => setSelectedStyle(style)}
             >
               <div className="relative overflow-hidden">
