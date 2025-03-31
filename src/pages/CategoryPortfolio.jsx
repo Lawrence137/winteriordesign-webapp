@@ -41,21 +41,34 @@ const categoryData = {
       }
     ]
   },
+  'bathroom-vanities': {
+    title: 'Bathroom Vanities',
+    description: 'Storage spaces are critical in any bathroom design',
+    styles: [
+      {
+        id: 1,
+        name: 'Bathroom Vanities',
+        description: 'Storage spaces are critical in any bathroom design',
+        image: portfolioItems.find(item => item.category === 'Bathroom Vanities')?.imageUrl || '',
+        gallery: portfolioItems.find(item => item.category === 'Bathroom Vanities')?.imageFolder || []
+      }
+    ]
+  },
   // Add other categories here
 };
 
 const relatedCategories = [
   {
     id: 1,
-    title: 'Bedroom Furniture',
-    image: '/images/bedroom.webp',
-    link: '/portfolio/category/bedroom-furniture'
+    title: 'Kitchen Cabinets',
+    image: '/images/kitchen.webp',
+    link: '/portfolio/category/kitchen-cabinets'
   },
   {
     id: 2,
-    title: 'Bathroom Furniture',
-    image: '/images/bathroom.webp',
-    link: '/portfolio/category/bathroom-furniture'
+    title: 'Closets & Wardrobes',
+    image: '/images/wardrobe.webp',
+    link: '/portfolio/category/closets-wardrobes'
   },
   {
     id: 3,
@@ -95,7 +108,13 @@ function CategoryPortfolio() {
   return (
     <div className="pt-20">
       {/* Hero Section */}
-      <div className="relative h-[40vh] bg-cover bg-center" style={{ backgroundImage: `url(${categoryInfo.styles[0].image})` }}>
+      <div className="relative h-[40vh] bg-cover bg-center" style={{ 
+        backgroundImage: `url(${
+          category === 'kitchen-cabinets' 
+            ? portfolioItems.find(item => item.category === 'Solid Wood')?.imageUrl 
+            : categoryInfo.styles[0].image
+        })` 
+      }}>
         <div className="absolute inset-0 bg-black/50" />
         <div className="container mx-auto px-4 h-full flex flex-col justify-center items-center text-white relative z-10">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">{displayCategory}</h1>

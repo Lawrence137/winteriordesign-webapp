@@ -54,5 +54,18 @@ export const portfolioItems = [
       "/images/portfolio/vac-press/vac-press-kitchen-4.webp",
     ],
   },
+  {
+    id: 5,
+    title: "Bathroom Vanities",
+    description: "Storage spaces are critical in any bathroom design",
+    imageUrl: "/images/portfolio/bathroom-vanities/bath-vanity1.jpg",
+    category: "Bathroom Vanities",
+    imageFolder: [
+      "/images/portfolio/bathroom-vanities/bath-vanity1.jpg",
+      "/images/portfolio/bathroom-vanities/bath-vanity2.jpg",
+      "/images/portfolio/bathroom-vanities/bath-vanity3.jpg",
+      "/images/portfolio/bathroom-vanities/bath-vanity4.jpg",
+    ],
+  }
   // Add more items as needed
 ];

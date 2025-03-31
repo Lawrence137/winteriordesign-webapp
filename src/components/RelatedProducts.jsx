@@ -1,24 +1,25 @@
 import { Link } from 'react-router-dom';
+import { portfolioItems } from '../data';
 
 const categories = [
   {
     id: 1,
     title: 'Kitchen Cabinets',
-    image: '/images/categories/kitchen.webp',
+    image: portfolioItems.find(item => item.category === 'Solid Wood')?.imageUrl || '/images/categories/kitchen.webp',
     description: 'Custom kitchen solutions for your home',
     styles: ['Mela Edge', 'Solid Wood', 'Spray Paint', 'Vac Press']
   },
   {
     id: 2,
     title: 'Closets & Wardrobes',
-    image: '/images/categories/wardrobe.webp',
+    image: portfolioItems.find(item => item.category === 'Closets & Wardrobes')?.imageUrl || '/images/categories/wardrobe.webp',
     description: 'Maximize your storage space with style',
     styles: ['Walk-in', 'Built-in', 'Sliding', 'Corner Units']
   },
   {
     id: 3,
-    title: 'Bathroom Vanity',
-    image: '/images/categories/bathroom.webp',
+    title: 'Bathroom Vanities',
+    image: portfolioItems.find(item => item.category === 'Bathroom Vanities')?.imageUrl || '/images/categories/bathroom.webp',
     description: 'Storage spaces are critical in any bathroom design',
     styles: ['Undermount', 'Vessel', 'Wall-Mounted', 'Freestanding']
   }
