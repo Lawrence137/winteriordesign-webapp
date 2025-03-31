@@ -34,10 +34,10 @@ const categoryData = {
       },
       {
         id: 4,
-        name: 'Vac Press',
-        description: 'High-quality vacuum pressed cabinet doors',
-        image: portfolioItems.find(item => item.category === 'Vac Press')?.imageUrl || '',
-        gallery: portfolioItems.find(item => item.category === 'Vac Press')?.imageFolder || []
+        name: 'PVC Wrap and High Gloss',
+        description: 'Modern and sleek finishes with PVC wrap and high gloss surfaces',
+        image: portfolioItems.find(item => item.category === 'PVC Wrap and High Gloss')?.imageUrl || '',
+        gallery: portfolioItems.find(item => item.category === 'PVC Wrap and High Gloss')?.imageFolder || []
       }
     ]
   },

@@ -43,15 +43,20 @@ export const portfolioItems = [
   },
   {
     id: 4,
-    title: "Vacuum Press Design",
-    description: "A kitchen with a vacuum press finish for a seamless look.",
-    imageUrl: "/images/portfolio/vac-press/vac-press-kitchen-1.webp",
-    category: "Vac Press",
+    title: "PVC Wrap and High Gloss",
+    description: "Modern and sleek finishes with PVC wrap and high gloss surfaces",
+    imageUrl: "/images/portfolio/pvc-gloss/pvc-gloss1.jpg",
+    category: "PVC Wrap and High Gloss",
     imageFolder: [
-      "/images/portfolio/vac-press/vac-press-kitchen-1.webp",
-      "/images/portfolio/vac-press/vac-press-kitchen-2.webp",
-      "/images/portfolio/vac-press/vac-press-kitchen-3.webp",
-      "/images/portfolio/vac-press/vac-press-kitchen-4.webp",
+      "/images/portfolio/pvc-gloss/pvc-gloss1.jpg",
+      "/images/portfolio/pvc-gloss/pvc-gloss2.jpg",
+      "/images/portfolio/pvc-gloss/pvc-gloss3.jpg",
+      "/images/portfolio/pvc-gloss/pvc-gloss4.jpg",
+      "/images/portfolio/pvc-gloss/pvc-gloss5.jpg",
+      "/images/portfolio/pvc-gloss/pvc-gloss6.jpg",
+      "/images/portfolio/pvc-gloss/pvc-gloss7.jpg",
+      "/images/portfolio/pvc-gloss/pvc-gloss8.jpg",
+      "/images/portfolio/pvc-gloss/pvc-gloss9.jpg"
     ],
   },
   {
