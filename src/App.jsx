@@ -13,6 +13,7 @@ import About from './pages/About';
 import Contact from './pages/Contact';
 import ProjectDetail from './pages/ProjectDetail';
 import CategoryPortfolio from './pages/CategoryPortfolio';
+import { SpeedInsights } from "@vercel/speed-insights/react"
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
         </Routes>
       </main>
       <Analytics />
+      <SpeedInsights />
       <Footer />
       <WhatsappIcon />
     </div>
