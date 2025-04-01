@@ -2,7 +2,7 @@ import About from '../components/About';
 
 function AboutPage() {
   return (
-    <div className="pt-20">
+    <div className="mt-[90px]">
       <About />
     </div>
   );

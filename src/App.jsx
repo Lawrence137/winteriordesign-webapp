@@ -2,7 +2,7 @@ import { Routes, Route } from 'react-router-dom'
 import { Analytics } from '@vercel/analytics/react';
 import './App.css';
 import './index.css';
-import Header from './components/Header';
+import Navigation from './components/Navigation';
 import Footer from './components/Footer';
 import WhatsappIcon from './components/WhatsappIcon';
 
@@ -17,7 +17,7 @@ import CategoryPortfolio from './pages/CategoryPortfolio';
 function App() {
   return (
     <div className="App">
-      <Header />
+      <Navigation />
       <main>
         <Routes>
           <Route path="/" element={<Home />} />

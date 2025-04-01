@@ -2,7 +2,7 @@ import Portfolio from '../components/Portfolio';
 
 function PortfolioPage() {
   return (
-    <div className="pt-20">
+    <div className="mt-[90px]">
       <Portfolio />
     </div>
   );

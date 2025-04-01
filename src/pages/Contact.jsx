@@ -2,7 +2,7 @@ import Contact from '../components/Contact';
 
 function ContactPage() {
   return (
-    <div className="pt-20">
+    <div className="mt-[90px]">
       <Contact />
     </div>
   );

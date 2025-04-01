@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import { useSwipeable } from "react-swipeable";
 import { FaPhone, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
+import Navigation from "./Navigation";
 
 const slides = [
   {
@@ -49,9 +50,11 @@ function Hero() {
 
   return (
     <>
+      <Navigation />
+      
       <section
         id="home"
-        className="relative h-screen w-full overflow-hidden"
+        className="relative h-screen w-full overflow-hidden pt-[70px]"
         {...handlers}
       >
         {/* Slides Container */}
