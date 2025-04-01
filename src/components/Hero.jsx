@@ -187,33 +187,31 @@ function Hero() {
       </section>
 
       {/* Persistent Mobile Contact Bar */}
-      <ScrollReveal delay={0.6}>
-        <div className="fixed bottom-0 left-0 right-0 bg-white shadow-lg z-50 md:hidden">
-          <div className="flex items-center justify-between px-4 py-2 border-t border-gray-200">
-            <a
-              href="tel:+254728846560"
-              className="flex flex-col items-center text-red-500 hover:text-red-700 transition-colors duration-300"
-            >
-              <FaPhone className="text-xl mb-1" />
-              <span className="text-xs font-medium">CALL US</span>
-            </a>
-            <a
-              href="#contact"
-              className="flex flex-col items-center text-red-500 hover:text-red-700 transition-colors duration-300"
-            >
-              <FaEnvelope className="text-xl mb-1" />
-              <span className="text-xs font-medium">ENQUIRE</span>
-            </a>
-            <a
-              href="#location"
-              className="flex flex-col items-center text-red-500 hover:text-red-700 transition-colors duration-300"
-            >
-              <FaMapMarkerAlt className="text-xl mb-1" />
-              <span className="text-xs font-medium">CONTACT</span>
-            </a>
-          </div>
+      <div className="fixed bottom-0 left-0 right-0 bg-white shadow-lg z-50 md:hidden">
+        <div className="flex items-center justify-between px-4 py-2 border-t border-gray-200">
+          <a
+            href="tel:+254728846560"
+            className="flex flex-col items-center text-red-500 hover:text-red-700 transition-colors duration-300"
+          >
+            <FaPhone className="text-xl mb-1" />
+            <span className="text-xs font-medium">CALL US</span>
+          </a>
+          <a
+            href="#contact"
+            className="flex flex-col items-center text-red-500 hover:text-red-700 transition-colors duration-300"
+          >
+            <FaEnvelope className="text-xl mb-1" />
+            <span className="text-xs font-medium">ENQUIRE</span>
+          </a>
+          <a
+            href="#location"
+            className="flex flex-col items-center text-red-500 hover:text-red-700 transition-colors duration-300"
+          >
+            <FaMapMarkerAlt className="text-xl mb-1" />
+            <span className="text-xs font-medium">CONTACT</span>
+          </a>
         </div>
-      </ScrollReveal>
+      </div>
     </>
   );
 }
