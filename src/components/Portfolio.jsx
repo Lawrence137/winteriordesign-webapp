@@ -1,7 +1,42 @@
-import { useState } from 'react';
+import { useState, memo } from 'react';
 import { Link } from 'react-router-dom';
 import { portfolioItems } from '../data';
 import ScrollReveal from './ScrollReveal';
+
+// Memoize the category card to prevent unnecessary re-renders
+const CategoryCard = memo(({ category, getCategoryUrl, onMouseEnter, onMouseLeave }) => (
+  <ScrollReveal delay={0.2}>
+    <div 
+      className="relative group"
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
+    >
+      <div className="relative h-[400px] overflow-hidden rounded-lg">
+        <div className="absolute inset-0 bg-black/50 z-10" />
+        <img
+          src={category.image}
+          alt={category.title}
+          className="w-full h-full object-cover"
+          loading="lazy"
+          decoding="async"
+          fetchPriority="high"
+        />
+        <div className="absolute inset-0 z-20 flex flex-col">
+          <div className="mt-auto p-6 text-white">
+            <h3 className="text-2xl font-bold mb-2">{category.title}</h3>
+            <p className="text-sm opacity-90 mb-6">{category.description}</p>
+            <Link
+              to={`/portfolio/category/${getCategoryUrl(category.title)}`}
+              className="inline-block w-full md:w-auto text-center bg-white text-gray-900 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition-colors shadow-lg"
+            >
+              Discover More
+            </Link>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ScrollReveal>
+));
 
 const categories = [
   {
@@ -58,43 +93,13 @@ function Portfolio() {
         {/* Main Categories Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {categories.map((category, index) => (
-            <ScrollReveal key={category.id} delay={0.2 + (index * 0.1)}>
-              <div 
-                className="relative group"
-                onMouseEnter={() => setHoveredCategory(category.id)}
-                onMouseLeave={() => setHoveredCategory(null)}
-              >
-                {/* Category Card */}
-                <div className="relative h-[400px] overflow-hidden rounded-lg">
-                  {/* Dark Overlay */}
-                  <div className="absolute inset-0 bg-black/50 z-10" />
-                  
-                  {/* Background Image */}
-                  <img
-                    src={category.image}
-                    alt={category.title}
-                    className="w-full h-full object-cover"
-                  />
-
-                  {/* Content Container */}
-                  <div className="absolute inset-0 z-20 flex flex-col">
-                    {/* Title and Description - At Bottom for Mobile, Center for Desktop */}
-                    <div className="mt-auto p-6 text-white">
-                      <h3 className="text-2xl font-bold mb-2">{category.title}</h3>
-                      <p className="text-sm opacity-90 mb-6">{category.description}</p>
-                      
-                      {/* Permanent Discover More Button */}
-                      <Link
-                        to={`/portfolio/category/${getCategoryUrl(category.title)}`}
-                        className="inline-block w-full md:w-auto text-center bg-white text-gray-900 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition-colors shadow-lg"
-                      >
-                        Discover More
-                      </Link>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </ScrollReveal>
+            <CategoryCard
+              key={category.id}
+              category={category}
+              getCategoryUrl={getCategoryUrl}
+              onMouseEnter={() => setHoveredCategory(category.id)}
+              onMouseLeave={() => setHoveredCategory(null)}
+            />
           ))}
         </div>
       </div>
@@ -102,4 +107,4 @@ function Portfolio() {
   );
 }
 
-export default Portfolio;
+export default memo(Portfolio);

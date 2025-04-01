@@ -1,5 +1,21 @@
+import { memo } from 'react';
 import { FaMoneyBillWave, FaPaintBrush, FaUsers } from 'react-icons/fa';
 import ScrollReveal from './ScrollReveal';
+
+// Memoize the feature card to prevent unnecessary re-renders
+const FeatureCard = memo(({ Icon, title, description, delay }) => (
+  <ScrollReveal delay={delay}>
+    <div className="step-card bg-white/20 backdrop-blur-md p-8 rounded-3xl shadow-md hover:shadow-lg hover:scale-105 transition-all duration-300 flex-1 max-w-sm h-[280px] flex flex-col items-center">
+      <Icon className="text-red-500 text-4xl mb-4" />
+      <h3 className="text-xl font-semibold mb-4 text-center">
+        {title}
+      </h3>
+      <p className="text-gray-200 text-center">
+        {description}
+      </p>
+    </div>
+  </ScrollReveal>
+));
 
 function About() {
   return (
@@ -16,6 +32,7 @@ function About() {
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
           backgroundAttachment: 'fixed',
+          willChange: 'transform'
         }}
       />
 
@@ -27,6 +44,9 @@ function About() {
           src="/images/aboutbg.webp"
           alt="Background"
           className="absolute inset-0 w-full h-full object-cover"
+          loading="eager"
+          decoding="async"
+          fetchPriority="high"
         />
         <div className="absolute inset-0 bg-black/50" />
       </div>
@@ -46,6 +66,9 @@ function About() {
               src="/images/headshot/headshot.jpg"
               alt="CEO Headshot"
               className="w-full h-full object-cover"
+              loading="eager"
+              decoding="async"
+              fetchPriority="high"
             />
           </div>
         </ScrollReveal>
@@ -77,44 +100,24 @@ function About() {
         {/* Why Choose Us Section */}
         <div className="w-full mt-8">
           <div className="flex flex-col md:flex-row gap-6 justify-center">
-            {/* Card 1: Reasonable Prices */}
-            <ScrollReveal delay={0.5}>
-              <div className="step-card bg-white/20 backdrop-blur-md p-8 rounded-3xl shadow-md hover:shadow-lg hover:scale-105 transition-all duration-300 flex-1 max-w-sm h-[280px] flex flex-col items-center">
-                <FaMoneyBillWave className="text-red-500 text-4xl mb-4" />
-                <h3 className="text-xl font-semibold mb-4 text-center">
-                  Reasonable Prices
-                </h3>
-                <p className="text-gray-200 text-center">
-                  We design kitchens and other interior fittings that fulfill the needs of all people and offer it at affordable and fair prices.
-                </p>
-              </div>
-            </ScrollReveal>
-
-            {/* Card 2: Exclusive Design */}
-            <ScrollReveal delay={0.6}>
-              <div className="step-card bg-white/20 backdrop-blur-md p-8 rounded-3xl shadow-md hover:shadow-lg hover:scale-105 transition-all duration-300 flex-1 max-w-sm h-[280px] flex flex-col items-center">
-                <FaPaintBrush className="text-red-500 text-4xl mb-4" />
-                <h3 className="text-xl font-semibold mb-4 text-center">
-                  Exclusive Design
-                </h3>
-                <p className="text-gray-200 text-center">
-                  Mixture of imagination, experience, and professionalism is the secret of our design!
-                </p>
-              </div>
-            </ScrollReveal>
-
-            {/* Card 3: Professional Team */}
-            <ScrollReveal delay={0.7}>
-              <div className="step-card bg-white/20 backdrop-blur-md p-8 rounded-3xl shadow-md hover:shadow-lg hover:scale-105 transition-all duration-300 flex-1 max-w-sm h-[280px] flex flex-col items-center">
-                <FaUsers className="text-red-500 text-4xl mb-4" />
-                <h3 className="text-xl font-semibold mb-4 text-center">
-                  Professional Team
-                </h3>
-                <p className="text-gray-200 text-center">
-                  We are proud of our amicable, professional, and always developing team!
-                </p>
-              </div>
-            </ScrollReveal>
+            <FeatureCard
+              Icon={FaMoneyBillWave}
+              title="Reasonable Prices"
+              description="We design kitchens and other interior fittings that fulfill the needs of all people and offer it at affordable and fair prices."
+              delay={0.5}
+            />
+            <FeatureCard
+              Icon={FaPaintBrush}
+              title="Exclusive Design"
+              description="Mixture of imagination, experience, and professionalism is the secret of our design!"
+              delay={0.6}
+            />
+            <FeatureCard
+              Icon={FaUsers}
+              title="Professional Team"
+              description="We are proud of our amicable, professional, and always developing team!"
+              delay={0.7}
+            />
           </div>
         </div>
       </div>
@@ -122,4 +125,4 @@ function About() {
   );
 }
 
-export default About;
+export default memo(About);
