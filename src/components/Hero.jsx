@@ -66,11 +66,11 @@ function Hero() {
               <img
                 src={slide.image}
                 alt={slide.title}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover blur-[1px] md:blur-none"
                 loading={index === 0 ? "eager" : "lazy"}
               />
               {/* Dark Overlay */}
-              <div className="absolute inset-0 bg-black/40" />
+              <div className="absolute inset-0 bg-black/50 backdrop-blur-[2px] md:bg-black/40 md:backdrop-blur-none" />
             </div>
           </div>
         ))}
@@ -92,8 +92,8 @@ function Hero() {
         <FaArrowRight className="text-gray-500" size={24} />
       </button>
 
-      {/* Content */}
-      <div className="absolute inset-0 flex flex-col items-center justify-center z-10">
+      {/* Desktop Content */}
+      <div className="absolute inset-0 flex flex-col items-center justify-center z-10 hidden md:flex">
         <div className="text-center text-white px-4">
           <h2 className="text-5xl md:text-6xl font-bold mb-4 drop-shadow-lg">
             {slides[currentSlide].title}
@@ -110,8 +110,51 @@ function Hero() {
         </div>
       </div>
 
+      {/* Mobile Card Overlay */}
+      <div className="absolute inset-0 flex items-center justify-center z-20 md:hidden px-8">
+        <div className="w-full max-w-sm flex flex-col items-center">
+          <div className="bg-white/95 rounded-2xl shadow-2xl overflow-hidden ring-1 ring-white/20 w-full backdrop-blur-sm relative before:absolute before:inset-0 before:border-2 before:border-white/10 before:rounded-2xl before:-m-[2px]">
+            <div className="aspect-square relative">
+              {slides.map((slide, index) => (
+                <div
+                  key={index}
+                  className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+                    index === currentSlide ? "opacity-100" : "opacity-0"
+                  }`}
+                >
+                  <div className="relative w-full h-full flex items-center justify-center bg-gray-100">
+                    <img
+                      src={slide.image}
+                      alt={slide.title}
+                      className="w-full h-full object-contain"
+                    />
+                  </div>
+                  {/* Text Overlay on Image */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent p-6 flex flex-col justify-end">
+                    <h2 className="text-2xl font-bold mb-2 text-white drop-shadow-lg">
+                      {slide.title}
+                    </h2>
+                    <p className="text-white/90 text-sm drop-shadow">
+                      {slide.subtitle}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Mobile Enquire Button */}
+          <a
+            href="#contact"
+            className="mt-6 inline-flex items-center justify-center bg-red-500 hover:bg-red-700 text-white text-xs sm:text-sm font-medium px-4 h-8 rounded-lg shadow-lg transition-all duration-300 ring-1 ring-white/20 relative z-10"
+          >
+            ENQUIRE
+          </a>
+        </div>
+      </div>
+
       {/* Dots Navigation */}
-      <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2 z-10">
+      <div className="absolute bottom-12 md:bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2 z-10">
         {slides.map((_, index) => (
           <button
             key={index}
