@@ -63,7 +63,7 @@ function Navigation() {
         </div>
 
         {/* Mobile Menu Button */}
-        <div className="w-[40px] h-[40px] relative z-[60] md:hidden">
+        <div className="w-[40px] h-[40px] relative z-[110] md:hidden">
           <MenuButton isOpen={isOpen} onClick={toggleMenu} />
         </div>
       </div>
@@ -77,27 +77,35 @@ function Navigation() {
       />
 
       {/* Mobile Menu */}
-      <div 
-        className={`fixed top-0 right-0 w-3/4 h-screen bg-white transform transition-transform duration-300 ease-in-out ${
-          isOpen ? 'translate-x-0' : 'translate-x-full'
-        } pt-[90px] z-[55] shadow-2xl md:hidden`}
+      <div
+        className={`fixed inset-0 bg-black/60 backdrop-blur-sm transition-opacity duration-300 md:hidden ${
+          isOpen ? "opacity-100 z-[100]" : "opacity-0 pointer-events-none"
+        }`}
+        onClick={() => setIsOpen(false)}
       >
-        <div className="px-6 py-8">
-          <div className="flex flex-col space-y-6">
-            {menuItems.map((item) => (
-              <Link
-                key={item.path}
-                to={item.path}
-                className={`text-xl font-medium transition-colors duration-200 ${
-                  location.pathname === item.path
-                  ? 'text-red-500'
-                  : 'text-gray-900 hover:text-red-500'
-                }`}
-                onClick={toggleMenu}
-              >
-                {item.label}
-              </Link>
-            ))}
+        <div
+          className={`fixed right-0 top-0 bottom-0 w-64 bg-white shadow-lg transition-transform duration-300 transform ${
+            isOpen ? "translate-x-0" : "translate-x-full"
+          }`}
+          onClick={(e) => e.stopPropagation()}
+        >
+          <div className="px-6 py-8">
+            <div className="flex flex-col space-y-6">
+              {menuItems.map((item) => (
+                <Link
+                  key={item.path}
+                  to={item.path}
+                  className={`text-xl font-medium transition-colors duration-200 ${
+                    location.pathname === item.path
+                    ? 'text-red-500'
+                    : 'text-gray-900 hover:text-red-500'
+                  }`}
+                  onClick={toggleMenu}
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </div>
           </div>
         </div>
       </div>

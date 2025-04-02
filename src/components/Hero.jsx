@@ -193,7 +193,7 @@ function Hero() {
       </section>
 
       {/* Persistent Mobile Contact Bar */}
-      <div className="fixed bottom-0 left-0 right-0 z-50 md:hidden">
+      <div className="fixed bottom-0 left-0 right-0 z-40 md:hidden">
         {/* Curved Notch Background */}
         <div className="relative bg-white shadow-[0_-2px_8px_rgba(0,0,0,0.06)]">
           <div className="absolute -top-4 inset-x-0">
