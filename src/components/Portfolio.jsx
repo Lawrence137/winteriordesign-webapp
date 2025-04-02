@@ -92,6 +92,16 @@ function Portfolio() {
         <div className="absolute top-2/3 right-1/3 w-3 h-3 bg-red-500/20 rounded-full animate-float-slow"></div>
         <div className="absolute bottom-24 right-1/4 w-4 h-4 bg-red-500/25 rounded-full animate-float-slower"></div>
         
+        {/* Enhanced Pulsing Dots */}
+        <div className="absolute top-1/4 left-1/3 w-2 h-2 bg-red-500/40 rounded-full animate-pulse"></div>
+        <div className="absolute bottom-1/3 right-1/4 w-2 h-2 bg-red-500/40 rounded-full animate-pulse delay-300"></div>
+        <div className="absolute top-2/3 left-1/4 w-2 h-2 bg-red-500/40 rounded-full animate-pulse delay-700"></div>
+        <div className="absolute top-16 right-1/3 w-1.5 h-1.5 bg-red-500/30 rounded-full animate-pulse delay-150"></div>
+        <div className="absolute bottom-32 left-1/2 w-1.5 h-1.5 bg-red-500/30 rounded-full animate-pulse delay-500"></div>
+        <div className="absolute top-1/2 right-24 w-1.5 h-1.5 bg-red-500/30 rounded-full animate-pulse delay-[450ms]"></div>
+        <div className="absolute bottom-1/4 left-32 w-1.5 h-1.5 bg-red-500/30 rounded-full animate-pulse delay-[600ms]"></div>
+        <div className="absolute top-3/4 right-1/2 w-1.5 h-1.5 bg-red-500/30 rounded-full animate-pulse delay-[250ms]"></div>
+        
         {/* Decorative Lines */}
         <div className="absolute top-32 left-0 w-32 h-px bg-gradient-to-r from-red-500/40 to-transparent"></div>
         <div className="absolute top-1/2 right-0 w-40 h-px bg-gradient-to-l from-red-500/40 to-transparent"></div>
@@ -102,11 +112,6 @@ function Portfolio() {
         <div className="absolute top-0 right-0 w-32 h-32 border-r-2 border-t-2 border-red-500/20 rounded-tr-3xl"></div>
         <div className="absolute bottom-0 left-0 w-32 h-32 border-l-2 border-b-2 border-red-500/20 rounded-bl-3xl"></div>
         <div className="absolute bottom-0 right-0 w-32 h-32 border-r-2 border-b-2 border-red-500/20 rounded-br-3xl"></div>
-
-        {/* Additional Small Decorative Elements */}
-        <div className="absolute top-1/4 left-1/3 w-2 h-2 bg-red-500/40 rounded-full animate-pulse"></div>
-        <div className="absolute bottom-1/3 right-1/4 w-2 h-2 bg-red-500/40 rounded-full animate-pulse delay-300"></div>
-        <div className="absolute top-2/3 left-1/4 w-2 h-2 bg-red-500/40 rounded-full animate-pulse delay-700"></div>
       </div>
 
       <div className="container mx-auto px-4 relative">
@@ -138,30 +143,12 @@ function Portfolio() {
             {/* Small Subtitle with decorative side lines */}
             <div className="flex items-center justify-center gap-4 mb-3">
               <div className="h-px w-12 bg-gradient-to-r from-transparent to-red-500/30"></div>
-              <p className="text-red-500 font-medium tracking-wider uppercase text-sm">
+              <p className="text-red-500 font-medium tracking-wider uppercase text-lg">
                 Our Portfolio
               </p>
               <div className="h-px w-12 bg-gradient-to-l from-transparent to-red-500/30"></div>
             </div>
 
-            {/* Main Title */}
-            <div className="relative inline-block">
-              <h2 className="text-4xl md:text-6xl font-bold text-gray-900 mb-4 relative">
-                <span className="relative inline-block">
-                  Our
-                  <div className="absolute -top-1 -right-2 w-6 h-6">
-                    <div className="absolute inset-0 bg-red-500/20 rounded-full transform rotate-45"></div>
-                    <div className="absolute inset-0 bg-red-500/10 rounded-full animate-ping"></div>
-                  </div>
-                </span>
-                {" "}
-                <span className="relative inline-block">
-                  Work
-                  <div className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-red-500/0 via-red-500 to-red-500/0"></div>
-                  <div className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-red-500 via-red-500/50 to-red-500 blur-sm"></div>
-                </span>
-              </h2>
-            </div>
 
             {/* Description with enhanced decoration */}
             <div className="relative">
