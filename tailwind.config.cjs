@@ -13,6 +13,8 @@ export default {
         'float-medium': 'float 5s ease-in-out infinite',
         'float-slower': 'float 7s ease-in-out infinite',
         'spin-slow': 'spin 8s linear infinite',
+        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+        'pulse-fast': 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
       },
       keyframes: {
         borderPulse: {
