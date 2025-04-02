@@ -46,7 +46,7 @@ function Contact() {
           <ScrollReveal delay={0.1}>
             <div className="space-y-4">
               <img 
-                src="/images/WinteriorLogo2.png" 
+                src="/images/winteriordarklogo2.png" 
                 alt="Winterior Design" 
                 className="h-12 w-auto"
               />

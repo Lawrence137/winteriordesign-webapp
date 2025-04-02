@@ -39,7 +39,7 @@ function Navigation() {
         {/* Logo */}
         <Link to="/" className="flex items-center">
           <img 
-            src="/images/WinteriorLogo2.png" 
+            src="/images/winteriordarklogo2.png" 
             alt="Winterior Design" 
             className="h-[50px] w-auto"
           />
