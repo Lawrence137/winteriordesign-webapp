@@ -213,13 +213,17 @@ function Hero() {
             </a>
             <button
               onClick={openModal}
-              className="flex flex-col items-center -mt-7 bg-white rounded-full p-3"
+              className="flex flex-col items-center -mt-7 bg-white rounded-full p-3 relative"
               style={{
                 boxShadow: '0 1px 3px rgba(0,0,0,0.08)'
               }}
             >
-              <GiScrollQuill className="text-red-500 text-2xl mb-1" />
-              <span className="text-red-500 text-[13px] font-medium">ENQUIRE</span>
+              {/* Pulsing circle effect */}
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="w-12 h-12 rounded-full bg-red-500/20 animate-ping" />
+              </div>
+              <GiScrollQuill className="text-red-500 text-2xl mb-1 relative z-10" />
+              <span className="text-red-500 text-[13px] font-medium relative z-10">ENQUIRE</span>
             </button>
             <a href="https://wa.me/+254728846560" className="flex flex-col items-center">
               <GiSmartphone className="text-green-500 text-2xl mb-1" />
