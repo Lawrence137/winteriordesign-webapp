@@ -105,7 +105,7 @@ function Hero() {
         </ScrollReveal>
 
         {/* Desktop Content */}
-        <div className="absolute inset-0 flex items-center justify-center">
+        <div className="absolute inset-0 hidden md:flex items-center justify-center">
           <div className="text-center text-white relative z-10 px-4">
             <ScrollReveal delay={0.3}>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
@@ -120,7 +120,7 @@ function Hero() {
             <ScrollReveal delay={0.5}>
               <button
                 onClick={openModal}
-                className="mt-6 inline-flex items-center justify-center bg-red-500 hover:bg-red-700 text-white text-xs sm:text-sm font-medium px-4 h-8 rounded-lg shadow-lg transition-all duration-300 ring-1 ring-white/20 relative z-10"
+                className="mt-6 inline-flex items-center justify-center bg-red-500 hover:bg-red-700 text-white text-sm md:text-base font-medium px-4 md:px-8 h-8 md:h-12 rounded-lg shadow-lg transition-all duration-300 ring-1 ring-white/20 relative z-10 animate-pulse-glow hidden md:inline-flex"
               >
                 ENQUIRE
               </button>
