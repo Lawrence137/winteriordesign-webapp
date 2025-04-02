@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
+import { GiRotaryPhone, GiScrollQuill, GiSmartphone } from "react-icons/gi";
 import { useSwipeable } from "react-swipeable";
-import { FaPhone, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
 import Navigation from "./Navigation";
 import ScrollReveal from "./ScrollReveal";
 import useEnquiryModal from "../hooks/useEnquiryModal";
@@ -193,29 +193,39 @@ function Hero() {
       </section>
 
       {/* Persistent Mobile Contact Bar */}
-      <div className="fixed bottom-0 left-0 right-0 bg-white shadow-lg z-50 md:hidden">
-        <div className="flex items-center justify-between px-4 py-2 border-t border-gray-200">
-          <a
-            href="tel:+254728846560"
-            className="flex flex-col items-center text-red-500 hover:text-red-700 transition-colors duration-300"
-          >
-            <FaPhone className="text-xl mb-1" />
-            <span className="text-xs font-medium">CALL US</span>
-          </a>
-          <button
-            onClick={openModal}
-            className="flex flex-col items-center text-red-500 hover:text-red-700 transition-colors duration-300"
-          >
-            <FaEnvelope className="text-xl mb-1" />
-            <span className="text-xs font-medium">ENQUIRE</span>
-          </button>
-          <a
-            href="#location"
-            className="flex flex-col items-center text-red-500 hover:text-red-700 transition-colors duration-300"
-          >
-            <FaMapMarkerAlt className="text-xl mb-1" />
-            <span className="text-xs font-medium">CONTACT</span>
-          </a>
+      <div className="fixed bottom-0 left-0 right-0 z-50 md:hidden">
+        {/* Curved Notch Background */}
+        <div className="relative bg-white shadow-[0_-2px_8px_rgba(0,0,0,0.06)]">
+          <div className="absolute -top-4 inset-x-0">
+            <svg className="w-full h-4" viewBox="0 0 100 100" preserveAspectRatio="none">
+              <path
+                d="M0,100 L47,100 Q50,20 53,100 L100,100 L100,100 L0,100 Z"
+                fill="white"
+              />
+            </svg>
+          </div>
+          
+          {/* Menu Content */}
+          <div className="flex items-center justify-between px-6 py-2">
+            <a href="tel:+254728846560" className="flex flex-col items-center">
+              <GiRotaryPhone className="text-blue-500 text-2xl mb-1" />
+              <span className="text-red-500 text-[13px] font-medium">CALL US</span>
+            </a>
+            <button
+              onClick={openModal}
+              className="flex flex-col items-center -mt-7 bg-white rounded-full p-3"
+              style={{
+                boxShadow: '0 1px 3px rgba(0,0,0,0.08)'
+              }}
+            >
+              <GiScrollQuill className="text-red-500 text-2xl mb-1" />
+              <span className="text-red-500 text-[13px] font-medium">ENQUIRE</span>
+            </button>
+            <a href="https://wa.me/+254728846560" className="flex flex-col items-center">
+              <GiSmartphone className="text-green-500 text-2xl mb-1" />
+              <span className="text-red-500 text-[13px] font-medium">CONTACT</span>
+            </a>
+          </div>
         </div>
       </div>
     </>
