@@ -75,7 +75,7 @@ function About() {
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
           backgroundAttachment: 'fixed',
-          filter: 'blur(2px)'
+          filter: 'blur(1px)'
         }}
       />
 
@@ -83,12 +83,12 @@ function About() {
         <img
           src="/images/aboutbg.webp"
           alt="Background"
-          className="absolute inset-0 w-full h-full object-cover blur-[2px]"
+          className="absolute inset-0 w-full h-full object-cover opacity-50"
           loading="eager"
           decoding="async"
           fetchPriority="high"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/85 to-black/85" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/90 to-black/90" />
       </div>
 
       {/* Decorative Pulsing Dots - Mobile Optimized */}
@@ -98,19 +98,19 @@ function About() {
         <div className="hidden md:block absolute top-1/4 -right-32 w-96 h-96 bg-red-500/15 rounded-full blur-3xl animate-pulse-slow" />
         <div className="hidden md:block absolute -bottom-48 -left-48 w-[30rem] h-[30rem] bg-red-500/10 rounded-full blur-[80px] animate-pulse" />
         
-        {/* Mobile-optimized dots - Reduced number but more visible */}
-        <div className="absolute top-1/3 left-20 w-48 h-48 bg-red-500/20 rounded-full blur-2xl animate-pulse will-change-transform" />
-        <div className="absolute bottom-1/4 right-20 w-32 h-32 bg-red-500/20 rounded-full blur-xl animate-pulse-slow will-change-transform" />
+        {/* Mobile-optimized dots - Using box-shadow instead of blur for better performance */}
+        <div className="absolute top-1/3 left-20 w-48 h-48 bg-red-500/20 rounded-full shadow-[0_0_50px_20px_rgba(239,68,68,0.2)] animate-pulse will-change-transform" />
+        <div className="absolute bottom-1/4 right-20 w-32 h-32 bg-red-500/20 rounded-full shadow-[0_0_40px_15px_rgba(239,68,68,0.2)] animate-pulse-slow will-change-transform" />
         
-        {/* Small dots - Limited for mobile */}
-        <div className="absolute top-20 left-1/4 w-16 h-16 bg-red-500/40 rounded-full blur-lg animate-pulse-fast will-change-transform" />
-        <div className="absolute bottom-32 right-1/3 w-20 h-20 bg-red-500/35 rounded-full blur-lg animate-pulse will-change-transform" />
-        <div className="absolute top-2/3 left-1/3 w-24 h-24 bg-red-500/30 rounded-full blur-xl animate-pulse-fast will-change-transform" />
+        {/* Small dots - Using minimal blur and box-shadow combination */}
+        <div className="absolute top-20 left-1/4 w-16 h-16 bg-red-500/40 rounded-full blur-[2px] shadow-[0_0_20px_5px_rgba(239,68,68,0.3)] animate-pulse-fast will-change-transform" />
+        <div className="absolute bottom-32 right-1/3 w-20 h-20 bg-red-500/35 rounded-full blur-[2px] shadow-[0_0_25px_8px_rgba(239,68,68,0.25)] animate-pulse will-change-transform" />
+        <div className="absolute top-2/3 left-1/3 w-24 h-24 bg-red-500/30 rounded-full blur-[2px] shadow-[0_0_30px_10px_rgba(239,68,68,0.2)] animate-pulse-fast will-change-transform" />
         
-        {/* Tiny dots - Limited but higher visibility */}
-        <div className="absolute top-40 right-1/3 w-8 h-8 bg-red-500/50 rounded-full blur-md animate-pulse-fast will-change-transform" />
-        <div className="absolute bottom-1/2 left-1/4 w-12 h-12 bg-red-500/45 rounded-full blur-lg animate-pulse-fast will-change-transform" />
-        <div className="absolute top-3/4 right-20 w-10 h-10 bg-red-500/50 rounded-full blur-md animate-pulse-fast will-change-transform" />
+        {/* Tiny dots - Using box-shadow only */}
+        <div className="absolute top-40 right-1/3 w-8 h-8 bg-red-500/50 rounded-full shadow-[0_0_15px_5px_rgba(239,68,68,0.4)] animate-pulse-fast will-change-transform" />
+        <div className="absolute bottom-1/2 left-1/4 w-12 h-12 bg-red-500/45 rounded-full shadow-[0_0_20px_8px_rgba(239,68,68,0.35)] animate-pulse-fast will-change-transform" />
+        <div className="absolute top-3/4 right-20 w-10 h-10 bg-red-500/50 rounded-full shadow-[0_0_18px_6px_rgba(239,68,68,0.4)] animate-pulse-fast will-change-transform" />
       </div>
 
       <div className="container mx-auto px-4 relative z-[2]">
