@@ -5,6 +5,8 @@ import './index.css';
 import Navigation from './components/Navigation';
 import Footer from './components/Footer';
 import WhatsappIcon from './components/WhatsappIcon';
+import EnquiryModal from './components/EnquiryModal';
+import useEnquiryModal from './hooks/useEnquiryModal';
 
 // Page Components
 import Home from './pages/Home';
@@ -16,6 +18,8 @@ import CategoryPortfolio from './pages/CategoryPortfolio';
 import { SpeedInsights } from "@vercel/speed-insights/react"
 
 function App() {
+  const { isOpen, closeModal } = useEnquiryModal();
+
   return (
     <div className="flex flex-col min-h-screen">
       <Navigation />
@@ -33,6 +37,7 @@ function App() {
       <SpeedInsights />
       <Footer />
       <WhatsappIcon />
+      <EnquiryModal isOpen={isOpen} onClose={closeModal} />
     </div>
   );
 }

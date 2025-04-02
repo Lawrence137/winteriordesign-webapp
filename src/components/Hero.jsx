@@ -4,6 +4,7 @@ import { useSwipeable } from "react-swipeable";
 import { FaPhone, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
 import Navigation from "./Navigation";
 import ScrollReveal from "./ScrollReveal";
+import useEnquiryModal from "../hooks/useEnquiryModal";
 
 const slides = [
   {
@@ -25,6 +26,7 @@ const slides = [
 
 function Hero() {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const { openModal } = useEnquiryModal();
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -103,23 +105,27 @@ function Hero() {
         </ScrollReveal>
 
         {/* Desktop Content */}
-        <div className="absolute inset-0 flex flex-col items-center justify-center z-10 hidden md:flex">
-          <ScrollReveal delay={0.3}>
-            <div className="text-center text-white px-4">
-              <h2 className="text-5xl md:text-6xl font-bold mb-4 drop-shadow-lg">
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="text-center text-white relative z-10 px-4">
+            <ScrollReveal delay={0.3}>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
                 {slides[currentSlide].title}
-              </h2>
-              <p className="text-xl md:text-2xl mb-8 drop-shadow-md">
+              </h1>
+            </ScrollReveal>
+            <ScrollReveal delay={0.4}>
+              <p className="text-lg md:text-xl lg:text-2xl mb-8">
                 {slides[currentSlide].subtitle}
               </p>
-              <a
-                href="#contact"
-                className="bg-red-500 hover:bg-red-700 text-white px-6 py-3 rounded-lg shadow-md transition-all duration-300"
+            </ScrollReveal>
+            <ScrollReveal delay={0.5}>
+              <button
+                onClick={openModal}
+                className="mt-6 inline-flex items-center justify-center bg-red-500 hover:bg-red-700 text-white text-xs sm:text-sm font-medium px-4 h-8 rounded-lg shadow-lg transition-all duration-300 ring-1 ring-white/20 relative z-10"
               >
                 ENQUIRE
-              </a>
-            </div>
-          </ScrollReveal>
+              </button>
+            </ScrollReveal>
+          </div>
         </div>
 
         {/* Mobile Card Overlay */}
@@ -159,12 +165,12 @@ function Hero() {
 
             {/* Mobile Enquire Button */}
             <ScrollReveal delay={0.5}>
-              <a
-                href="#contact"
+              <button
+                onClick={openModal}
                 className="mt-6 inline-flex items-center justify-center bg-red-500 hover:bg-red-700 text-white text-xs sm:text-sm font-medium px-4 h-8 rounded-lg shadow-lg transition-all duration-300 ring-1 ring-white/20 relative z-10"
               >
                 ENQUIRE
-              </a>
+              </button>
             </ScrollReveal>
           </div>
         </div>
@@ -196,13 +202,13 @@ function Hero() {
             <FaPhone className="text-xl mb-1" />
             <span className="text-xs font-medium">CALL US</span>
           </a>
-          <a
-            href="#contact"
+          <button
+            onClick={openModal}
             className="flex flex-col items-center text-red-500 hover:text-red-700 transition-colors duration-300"
           >
             <FaEnvelope className="text-xl mb-1" />
             <span className="text-xs font-medium">ENQUIRE</span>
-          </a>
+          </button>
           <a
             href="#location"
             className="flex flex-col items-center text-red-500 hover:text-red-700 transition-colors duration-300"
