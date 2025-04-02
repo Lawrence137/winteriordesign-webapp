@@ -69,16 +69,16 @@ function Hero() {
                 index === currentSlide ? "opacity-100" : "opacity-0"
               }`}
             >
-              {/* Image Container */}
+              {/* Image Container - Optimized for mobile */}
               <div className="relative w-full h-full">
                 <img
                   src={slide.image}
                   alt={slide.title}
-                  className="w-full h-full object-cover blur-[1px] md:blur-none"
+                  className="w-full h-full object-cover"
                   loading={index === 0 ? "eager" : "lazy"}
                 />
-                {/* Dark Overlay */}
-                <div className="absolute inset-0 bg-black/50 backdrop-blur-[2px] md:bg-black/40 md:backdrop-blur-none" />
+                {/* Dark Overlay - Using gradient instead of blur */}
+                <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/60 md:from-black/40 md:via-black/30 md:to-black/40" />
               </div>
             </div>
           ))}
@@ -128,10 +128,10 @@ function Hero() {
           </div>
         </div>
 
-        {/* Mobile Card Overlay */}
+        {/* Mobile Card Overlay - Optimized without blur */}
         <div className="absolute inset-0 flex items-center justify-center z-20 md:hidden px-4">
           <div className="w-full flex flex-col items-center">
-            <div className="bg-white/95 rounded-2xl shadow-2xl overflow-hidden ring-1 ring-white/20 w-full backdrop-blur-sm relative before:absolute before:inset-0 before:border-2 before:border-white/10 before:rounded-2xl before:-m-[2px]">
+            <div className="bg-white/95 rounded-2xl shadow-2xl overflow-hidden ring-1 ring-white/20 w-full relative">
               <ScrollReveal delay={0.4}>
                 <div className="aspect-square relative">
                   {slides.map((slide, index) => (
@@ -148,8 +148,8 @@ function Hero() {
                           className="w-full h-full object-cover"
                         />
                       </div>
-                      {/* Text Overlay on Image */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent p-6 flex flex-col justify-end">
+                      {/* Text Overlay on Image - Using gradient instead of blur */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent p-6 flex flex-col justify-end">
                         <h2 className="text-2xl font-bold mb-2 text-white drop-shadow-lg">
                           {slide.title}
                         </h2>
@@ -218,9 +218,9 @@ function Hero() {
                 boxShadow: '0 1px 3px rgba(0,0,0,0.08)'
               }}
             >
-              {/* Pulsing circle effect */}
+              {/* Pulsing circle effect - Optimized for mobile */}
               <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-12 h-12 rounded-full bg-red-500/20 animate-ping" />
+                <div className="w-12 h-12 rounded-full bg-red-500/20 animate-pulse" />
               </div>
               <GiScrollQuill className="text-red-500 text-2xl mb-1 relative z-10" />
               <span className="text-red-500 text-[13px] font-medium relative z-10">ENQUIRE</span>
