@@ -1,10 +1,11 @@
 import { useState, useEffect } from "react";
-import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
+import { FaArrowLeft, FaArrowRight, FaChevronLeft, FaChevronRight, FaPhone, FaEnvelope } from "react-icons/fa";
 import { GiRotaryPhone, GiScrollQuill, GiSmartphone } from "react-icons/gi";
 import { useSwipeable } from "react-swipeable";
 import Navigation from "./Navigation";
 import ScrollReveal from "./ScrollReveal";
-import useEnquiryModal from "../hooks/useEnquiryModal";
+import { useEnquiry } from '../context/EnquiryContext';
+import EnquiryForm from './EnquiryForm';
 
 const slides = [
   {
@@ -26,7 +27,7 @@ const slides = [
 
 function Hero() {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const { openModal } = useEnquiryModal();
+  const { openEnquiryForm } = useEnquiry();
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -119,7 +120,7 @@ function Hero() {
             </ScrollReveal>
             <ScrollReveal delay={0.5}>
               <button
-                onClick={openModal}
+                onClick={openEnquiryForm}
                 className="mt-6 inline-flex items-center justify-center bg-red-500 hover:bg-red-700 text-white text-sm md:text-base font-medium px-4 md:px-8 h-8 md:h-12 rounded-lg shadow-lg transition-all duration-300 ring-1 ring-white/20 relative z-10 animate-pulse-glow hidden md:inline-flex"
               >
                 ENQUIRE
@@ -166,7 +167,7 @@ function Hero() {
             {/* Mobile Enquire Button */}
             <ScrollReveal delay={0.5}>
               <button
-                onClick={openModal}
+                onClick={openEnquiryForm}
                 className="mt-6 inline-flex items-center justify-center bg-red-500 hover:bg-red-700 text-white text-xs sm:text-sm font-medium px-4 h-8 rounded-lg shadow-lg transition-all duration-300 ring-1 ring-white/20 relative z-10"
               >
                 ENQUIRE
@@ -212,7 +213,7 @@ function Hero() {
               <span className="text-red-500 text-[13px] font-medium">CALL US</span>
             </a>
             <button
-              onClick={openModal}
+              onClick={openEnquiryForm}
               className="flex flex-col items-center -mt-7 bg-white rounded-full p-3 relative"
               style={{
                 boxShadow: '0 1px 3px rgba(0,0,0,0.08)'
@@ -232,6 +233,9 @@ function Hero() {
           </div>
         </div>
       </div>
+
+      {/* Single Enquiry Form Instance */}
+      <EnquiryForm />
     </>
   );
 }

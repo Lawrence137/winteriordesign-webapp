@@ -7,13 +7,16 @@ import Footer from './components/Footer';
 import WhatsappIcon from './components/WhatsappIcon';
 import EnquiryModal from './components/EnquiryModal';
 import useEnquiryModal from './hooks/useEnquiryModal';
+import { EnquiryProvider } from './context/EnquiryContext';
+import Hero from './components/Hero';
+import About from './components/About';
+import Portfolio from './components/Portfolio';
+import Process from './components/Process';
+import Contact from './components/Contact';
+import ProjectDetail from './pages/ProjectDetail';
 
 // Page Components
 import Home from './pages/Home';
-import Portfolio from './pages/Portfolio';
-import About from './pages/About';
-import Contact from './pages/Contact';
-import ProjectDetail from './pages/ProjectDetail';
 import CategoryPortfolio from './pages/CategoryPortfolio';
 import { SpeedInsights } from "@vercel/speed-insights/react"
 
@@ -21,24 +24,26 @@ function App() {
   const { isOpen, closeModal } = useEnquiryModal();
 
   return (
-    <div className="flex flex-col min-h-screen">
-      <Navigation />
-      <main className="flex-grow">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/portfolio" element={<Portfolio />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/portfolio/:id" element={<ProjectDetail />} />
-          <Route path="/portfolio/category/:category" element={<CategoryPortfolio />} />
-        </Routes>
-      </main>
-      <Analytics />
-      <SpeedInsights />
-      <Footer />
-      <WhatsappIcon />
-      <EnquiryModal isOpen={isOpen} onClose={closeModal} />
-    </div>
+    <EnquiryProvider>
+      <div className="flex flex-col min-h-screen">
+        <Navigation />
+        <main className="flex-grow">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/portfolio" element={<Portfolio />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/portfolio/:id" element={<ProjectDetail />} />
+            <Route path="/portfolio/category/:category" element={<CategoryPortfolio />} />
+          </Routes>
+        </main>
+        <Analytics />
+        <SpeedInsights />
+        <Footer />
+        <WhatsappIcon />
+        <EnquiryModal isOpen={isOpen} onClose={closeModal} />
+      </div>
+    </EnquiryProvider>
   );
 }
 
