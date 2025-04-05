@@ -4,6 +4,7 @@ import Modal from '../components/Modal';
 import { FaArrowLeft, FaHome, FaInfoCircle, FaTimes } from 'react-icons/fa';
 import { portfolioItems } from '../data';
 import RelatedProducts from '../components/RelatedProducts';
+import PageSEO from '../components/PageSEO';
 
 const kitchenLayouts = [
   {
@@ -189,6 +190,45 @@ function CategoryPortfolio() {
   const [selectedLayout, setSelectedLayout] = useState(null);
   const [showStickyNav, setShowStickyNav] = useState(false);
   
+  const categoryInfo = categoryData[category];
+
+  // Generate SEO data based on category
+  const getSEOData = () => {
+    const title = `${categoryInfo?.title || 'Products'} - Winterior Design Kenya`;
+    const description = `Explore our ${categoryInfo?.title.toLowerCase() || 'products'} collection. ${categoryInfo?.description || ''}`;
+    
+    const structuredData = {
+      '@context': 'https://schema.org',
+      '@type': 'CollectionPage',
+      'name': categoryInfo?.title,
+      'description': categoryInfo?.description,
+      'url': `https://winteriordesign.com/portfolio/category/${category}`,
+      'mainEntity': {
+        '@type': 'ItemList',
+        'itemListElement': categoryInfo?.styles.map((style, index) => ({
+          '@type': 'ListItem',
+          'position': index + 1,
+          'item': {
+            '@type': 'Product',
+            'name': style.name,
+            'description': style.description,
+            'image': style.image,
+            'url': `https://winteriordesign.com/portfolio/category/${category}#${style.name.toLowerCase().replace(/\s+/g, '-')}`
+          }
+        }))
+      }
+    };
+
+    return {
+      title,
+      description,
+      keywords: `${categoryInfo?.title.toLowerCase()}, interior design, modern design, Kenya, Nairobi, ${categoryInfo?.styles.map(s => s.name.toLowerCase()).join(', ')}`,
+      structuredData
+    };
+  };
+
+  const seoData = getSEOData();
+
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, [category]);
@@ -209,7 +249,6 @@ function CategoryPortfolio() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const categoryInfo = categoryData[category];
   const heroBackgroundImage = portfolioItems.find(item => 
     category === 'kitchen-cabinets' 
       ? item.category === 'Solid Wood'
@@ -232,18 +271,50 @@ function CategoryPortfolio() {
   }
 
   return (
-    <div className="pt-20">
-      {/* Sticky Navigation - positioned below main navbar */}
-      <div className={`fixed left-0 right-0 z-40 transition-all duration-300 ${
-        showStickyNav ? 'top-20' : '-top-full'
-      }`}>
-        <div className="h-24 relative shadow-lg">
-          <div className="absolute inset-0 bg-cover bg-center" style={{ 
-            backgroundImage: `url(${heroBackgroundImage})`,
-            filter: 'brightness(0.3) blur(2px)'
-          }} />
-          <div className="absolute inset-0 flex items-center justify-center z-10">
-            <div className="flex space-x-4 sm:space-x-6">
+    <>
+      <PageSEO
+        title={seoData.title}
+        description={seoData.description}
+        keywords={seoData.keywords}
+        url={`/portfolio/category/${category}`}
+        structuredData={seoData.structuredData}
+      />
+      <div className="pt-20">
+        {/* Sticky Navigation - positioned below main navbar */}
+        <div className={`fixed left-0 right-0 z-40 transition-all duration-300 ${
+          showStickyNav ? 'top-20' : '-top-full'
+        }`}>
+          <div className="h-24 relative shadow-lg">
+            <div className="absolute inset-0 bg-cover bg-center" style={{ 
+              backgroundImage: `url(${heroBackgroundImage})`,
+              filter: 'brightness(0.3) blur(2px)'
+            }} />
+            <div className="absolute inset-0 flex items-center justify-center z-10">
+              <div className="flex space-x-4 sm:space-x-6">
+                <Link to="/" className="flex items-center space-x-2 bg-white text-gray-900 px-4 sm:px-6 py-2 sm:py-3 rounded-full hover:bg-gray-100 transition shadow-md text-sm sm:text-base">
+                  <FaHome className="text-base sm:text-lg" />
+                  <span>Home</span>
+                </Link>
+                <Link to="/portfolio" className="flex items-center space-x-2 bg-transparent border-2 border-white text-white px-4 sm:px-6 py-2 sm:py-3 rounded-full hover:bg-white/10 transition shadow-md text-sm sm:text-base">
+                  <FaArrowLeft className="text-base sm:text-lg" />
+                  <span>Back to Portfolio</span>
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Hero Section */}
+        <div id="hero-section" className="relative h-[50vh] bg-cover bg-center" style={{ 
+          backgroundImage: `url(${heroBackgroundImage})` 
+        }}>
+          <div className="absolute inset-0 backdrop-blur-[2px] bg-black/60" />
+          <div className="container mx-auto px-4 h-full flex flex-col justify-center items-center text-white relative z-10">
+            <h1 className="text-4xl md:text-5xl font-bold mb-6">{displayCategory}</h1>
+            <p className="text-xl text-center max-w-2xl mb-12">
+              {categoryInfo.description}
+            </p>
+            <div id="hero-buttons" className="flex space-x-4 sm:space-x-6">
               <Link to="/" className="flex items-center space-x-2 bg-white text-gray-900 px-4 sm:px-6 py-2 sm:py-3 rounded-full hover:bg-gray-100 transition shadow-md text-sm sm:text-base">
                 <FaHome className="text-base sm:text-lg" />
                 <span>Home</span>
@@ -255,170 +326,147 @@ function CategoryPortfolio() {
             </div>
           </div>
         </div>
-      </div>
 
-      {/* Hero Section */}
-      <div id="hero-section" className="relative h-[50vh] bg-cover bg-center" style={{ 
-        backgroundImage: `url(${heroBackgroundImage})` 
-      }}>
-        <div className="absolute inset-0 backdrop-blur-[2px] bg-black/60" />
-        <div className="container mx-auto px-4 h-full flex flex-col justify-center items-center text-white relative z-10">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">{displayCategory}</h1>
-          <p className="text-xl text-center max-w-2xl mb-12">
-            {categoryInfo.description}
-          </p>
-          <div id="hero-buttons" className="flex space-x-4 sm:space-x-6">
-            <Link to="/" className="flex items-center space-x-2 bg-white text-gray-900 px-4 sm:px-6 py-2 sm:py-3 rounded-full hover:bg-gray-100 transition shadow-md text-sm sm:text-base">
-              <FaHome className="text-base sm:text-lg" />
-              <span>Home</span>
-            </Link>
-            <Link to="/portfolio" className="flex items-center space-x-2 bg-transparent border-2 border-white text-white px-4 sm:px-6 py-2 sm:py-3 rounded-full hover:bg-white/10 transition shadow-md text-sm sm:text-base">
-              <FaArrowLeft className="text-base sm:text-lg" />
-              <span>Back to Portfolio</span>
-            </Link>
-          </div>
-        </div>
-      </div>
-
-      {/* Kitchen Layouts Section - Only shown for kitchen-cabinets category */}
-      {category === 'kitchen-cabinets' && (
-        <div className="bg-gray-50 py-16">
-          <div className="container mx-auto px-4">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">Kitchen Cabinet Layouts</h2>
-              <p className="text-gray-600 max-w-2xl mx-auto">
-                Choose from our various kitchen cabinet layouts to find the perfect design for your space
-              </p>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {kitchenLayouts.map((layout) => (
-                <div 
-                  key={layout.id} 
-                  className="bg-white rounded-xl shadow-lg overflow-hidden group hover:shadow-xl transition-shadow duration-300 cursor-pointer"
-                  onClick={() => setSelectedLayout(layout)}
-                >
-                  <div className="relative h-64">
-                    <img
-                      src={layout.image}
-                      alt={layout.name}
-                      className="w-full h-full object-cover"
-                    />
-                    {/* Desktop hover overlay */}
-                    <div className="absolute inset-0 hidden md:flex items-center justify-center bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      <span className="text-white text-lg font-semibold flex items-center gap-2">
-                        <FaInfoCircle />
-                        View Details
-                      </span>
+        {/* Kitchen Layouts Section - Only shown for kitchen-cabinets category */}
+        {category === 'kitchen-cabinets' && (
+          <div className="bg-gray-50 py-16">
+            <div className="container mx-auto px-4">
+              <div className="text-center mb-12">
+                <h2 className="text-3xl md:text-4xl font-bold mb-4">Kitchen Cabinet Layouts</h2>
+                <p className="text-gray-600 max-w-2xl mx-auto">
+                  Choose from our various kitchen cabinet layouts to find the perfect design for your space
+                </p>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {kitchenLayouts.map((layout) => (
+                  <div 
+                    key={layout.id} 
+                    className="bg-white rounded-xl shadow-lg overflow-hidden group hover:shadow-xl transition-shadow duration-300 cursor-pointer"
+                    onClick={() => setSelectedLayout(layout)}
+                  >
+                    <div className="relative h-64">
+                      <img
+                        src={layout.image}
+                        alt={layout.name}
+                        className="w-full h-full object-cover"
+                      />
+                      {/* Desktop hover overlay */}
+                      <div className="absolute inset-0 hidden md:flex items-center justify-center bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <span className="text-white text-lg font-semibold flex items-center gap-2">
+                          <FaInfoCircle />
+                          View Details
+                        </span>
+                      </div>
+                      {/* Mobile and tablet permanent overlay */}
+                      <div className="absolute inset-0 md:hidden flex items-center justify-center bg-black/40">
+                        <span className="text-white text-lg font-semibold flex items-center gap-2">
+                          <FaInfoCircle />
+                          View Details
+                        </span>
+                      </div>
                     </div>
-                    {/* Mobile and tablet permanent overlay */}
-                    <div className="absolute inset-0 md:hidden flex items-center justify-center bg-black/40">
-                      <span className="text-white text-lg font-semibold flex items-center gap-2">
-                        <FaInfoCircle />
-                        View Details
+                    <div className="p-6">
+                      <h3 className="text-xl font-bold mb-2">{layout.name}</h3>
+                      <p className="text-gray-600">{layout.description}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* Styles Grid */}
+        <div className="container mx-auto px-4 py-16">
+          <h2 className="text-3xl font-bold mb-12 text-center">Choose Your Style</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {categoryInfo.styles.map((style) => (
+              <div 
+                key={style.id}
+                className="bg-white rounded-xl shadow-lg overflow-hidden group cursor-pointer"
+                onClick={() => setSelectedStyle(style)}
+              >
+                <div className="relative overflow-hidden">
+                  <img
+                    src={style.image}
+                    alt={style.name}
+                    className="w-full h-64 object-cover"
+                  />
+                  {/* Desktop-only hover overlay and effects */}
+                  <div className="hidden md:block">
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    <div className="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <span className="inline-block w-full text-center bg-white text-gray-900 px-4 py-2 rounded-full text-sm font-semibold">
+                        View Gallery
                       </span>
                     </div>
                   </div>
-                  <div className="p-6">
-                    <h3 className="text-xl font-bold mb-2">{layout.name}</h3>
-                    <p className="text-gray-600">{layout.description}</p>
+                  {/* Mobile-only permanent overlay and button */}
+                  <div className="block md:hidden">
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                    <div className="absolute bottom-4 left-4 right-4">
+                      <span className="inline-block w-full text-center bg-white text-gray-900 px-4 py-2 rounded-full text-sm font-semibold shadow-lg">
+                        View Gallery
+                      </span>
+                    </div>
                   </div>
                 </div>
-              ))}
-            </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-bold mb-2">{style.name}</h3>
+                  <p className="text-gray-600 text-sm">{style.description}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
-      )}
 
-      {/* Styles Grid */}
-      <div className="container mx-auto px-4 py-16">
-        <h2 className="text-3xl font-bold mb-12 text-center">Choose Your Style</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {categoryInfo.styles.map((style) => (
-            <div 
-              key={style.id}
-              className="bg-white rounded-xl shadow-lg overflow-hidden group cursor-pointer"
-              onClick={() => setSelectedStyle(style)}
-            >
-              <div className="relative overflow-hidden">
+        {/* Related Products */}
+        <RelatedProducts currentCategory={displayCategory} />
+
+        {/* Modal for showing gallery */}
+        {selectedStyle && (
+          <Modal
+            images={selectedStyle.gallery}
+            title={selectedStyle.name}
+            onClose={() => setSelectedStyle(null)}
+          />
+        )}
+
+        {/* Modal for showing layout details */}
+        {selectedLayout && (
+          <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
+            <div className="bg-white rounded-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+              <div className="relative">
                 <img
-                  src={style.image}
-                  alt={style.name}
-                  className="w-full h-64 object-cover"
+                  src={selectedLayout.image}
+                  alt={selectedLayout.name}
+                  className="w-full h-96 object-cover rounded-t-xl"
                 />
-                {/* Desktop-only hover overlay and effects */}
-                <div className="hidden md:block">
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  <div className="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <span className="inline-block w-full text-center bg-white text-gray-900 px-4 py-2 rounded-full text-sm font-semibold">
-                      View Gallery
-                    </span>
-                  </div>
-                </div>
-                {/* Mobile-only permanent overlay and button */}
-                <div className="block md:hidden">
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                  <div className="absolute bottom-4 left-4 right-4">
-                    <span className="inline-block w-full text-center bg-white text-gray-900 px-4 py-2 rounded-full text-sm font-semibold shadow-lg">
-                      View Gallery
-                    </span>
-                  </div>
-                </div>
+                <button
+                  onClick={() => setSelectedLayout(null)}
+                  className="absolute top-4 right-4 bg-white text-gray-900 p-2 rounded-full hover:bg-gray-100 transition-colors"
+                >
+                  <FaTimes size={20} />
+                </button>
               </div>
               <div className="p-6">
-                <h3 className="text-xl font-bold mb-2">{style.name}</h3>
-                <p className="text-gray-600 text-sm">{style.description}</p>
+                <h2 className="text-3xl font-bold mb-4">{selectedLayout.name}</h2>
+                <p className="text-gray-600 mb-6">{selectedLayout.details}</p>
+                <h3 className="text-xl font-semibold mb-3">Key Features:</h3>
+                <ul className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                  {selectedLayout.features.map((feature, index) => (
+                    <li key={index} className="flex items-center gap-2">
+                      <span className="text-blue-600">•</span>
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
               </div>
             </div>
-          ))}
-        </div>
-      </div>
-
-      {/* Related Products */}
-      <RelatedProducts currentCategory={displayCategory} />
-
-      {/* Modal for showing gallery */}
-      {selectedStyle && (
-        <Modal
-          images={selectedStyle.gallery}
-          title={selectedStyle.name}
-          onClose={() => setSelectedStyle(null)}
-        />
-      )}
-
-      {/* Modal for showing layout details */}
-      {selectedLayout && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
-          <div className="bg-white rounded-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
-            <div className="relative">
-              <img
-                src={selectedLayout.image}
-                alt={selectedLayout.name}
-                className="w-full h-96 object-cover rounded-t-xl"
-              />
-              <button
-                onClick={() => setSelectedLayout(null)}
-                className="absolute top-4 right-4 bg-white text-gray-900 p-2 rounded-full hover:bg-gray-100 transition-colors"
-              >
-                <FaTimes size={20} />
-              </button>
-            </div>
-            <div className="p-6">
-              <h2 className="text-3xl font-bold mb-4">{selectedLayout.name}</h2>
-              <p className="text-gray-600 mb-6">{selectedLayout.details}</p>
-              <h3 className="text-xl font-semibold mb-3">Key Features:</h3>
-              <ul className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                {selectedLayout.features.map((feature, index) => (
-                  <li key={index} className="flex items-center gap-2">
-                    <span className="text-blue-600">•</span>
-                    {feature}
-                  </li>
-                ))}
-              </ul>
-            </div>
           </div>
-        </div>
-      )}
-    </div>
+        )}
+      </div>
+    </>
   );
 }
 

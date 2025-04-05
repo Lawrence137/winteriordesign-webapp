@@ -1,0 +1,14 @@
+# Allow all web crawlers
+User-agent: *
+Allow: /
+
+# Disallow crawling of admin or private pages
+Disallow: /admin/
+Disallow: /private/
+Disallow: /api/
+
+# Sitemap location
+Sitemap: https://winteriordesign.com/sitemap.xml
+
+# Crawl-delay directive
+Crawl-delay: 1 
