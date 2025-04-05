@@ -75,7 +75,7 @@ function About() {
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
           backgroundAttachment: 'fixed',
-          filter: 'blur(1px)'
+          filter: 'blur(2px)'
         }}
       />
 
@@ -83,38 +83,51 @@ function About() {
         <img
           src="/images/aboutbg.webp"
           alt="Background"
-          className="absolute inset-0 w-full h-full object-cover opacity-50"
+          className="absolute inset-0 w-full h-full object-cover blur-[2px]"
           loading="eager"
           decoding="async"
           fetchPriority="high"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/90 to-black/90" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/85 to-black/85" />
       </div>
 
-      {/* Decorative Pulsing Dots - Mobile Optimized */}
+      {/* Decorative Pulsing Dots - Optimized but with full visual effect */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden z-[1]">
-        {/* Extra large dots - Desktop only */}
-        <div className="hidden md:block absolute -top-48 -right-48 w-[40rem] h-[40rem] bg-red-500/10 rounded-full blur-[100px] animate-pulse-slow" />
-        <div className="hidden md:block absolute top-1/4 -right-32 w-96 h-96 bg-red-500/15 rounded-full blur-3xl animate-pulse-slow" />
-        <div className="hidden md:block absolute -bottom-48 -left-48 w-[30rem] h-[30rem] bg-red-500/10 rounded-full blur-[80px] animate-pulse" />
+        {/* Extra large dots */}
+        <div className="absolute -top-48 -right-48 w-[40rem] h-[40rem] bg-red-500/10 rounded-full blur-[100px] animate-pulse-slow will-change-transform" />
         
-        {/* Mobile-optimized dots - Using box-shadow instead of blur for better performance */}
-        <div className="absolute top-1/3 left-20 w-48 h-48 bg-red-500/20 rounded-full shadow-[0_0_50px_20px_rgba(239,68,68,0.2)] animate-pulse will-change-transform" />
-        <div className="absolute bottom-1/4 right-20 w-32 h-32 bg-red-500/20 rounded-full shadow-[0_0_40px_15px_rgba(239,68,68,0.2)] animate-pulse-slow will-change-transform" />
+        {/* Large dots */}
+        <div className="absolute top-1/4 -right-32 w-96 h-96 bg-red-500/15 rounded-full blur-3xl animate-pulse-slow will-change-transform" />
+        <div className="absolute -bottom-48 -left-48 w-[30rem] h-[30rem] bg-red-500/10 rounded-full blur-[80px] animate-pulse will-change-transform" />
         
-        {/* Small dots - Using minimal blur and box-shadow combination */}
-        <div className="absolute top-20 left-1/4 w-16 h-16 bg-red-500/40 rounded-full blur-[2px] shadow-[0_0_20px_5px_rgba(239,68,68,0.3)] animate-pulse-fast will-change-transform" />
-        <div className="absolute bottom-32 right-1/3 w-20 h-20 bg-red-500/35 rounded-full blur-[2px] shadow-[0_0_25px_8px_rgba(239,68,68,0.25)] animate-pulse will-change-transform" />
-        <div className="absolute top-2/3 left-1/3 w-24 h-24 bg-red-500/30 rounded-full blur-[2px] shadow-[0_0_30px_10px_rgba(239,68,68,0.2)] animate-pulse-fast will-change-transform" />
+        {/* Medium dots */}
+        <div className="absolute top-1/3 left-20 w-48 h-48 bg-red-500/20 rounded-full blur-2xl animate-pulse will-change-transform" />
+        <div className="absolute bottom-1/4 right-20 w-32 h-32 bg-red-500/20 rounded-full blur-xl animate-pulse-slow will-change-transform" />
+        <div className="absolute top-20 right-1/3 w-40 h-40 bg-red-500/15 rounded-full blur-2xl animate-pulse-fast will-change-transform" />
         
-        {/* Tiny dots - Using box-shadow only */}
-        <div className="absolute top-40 right-1/3 w-8 h-8 bg-red-500/50 rounded-full shadow-[0_0_15px_5px_rgba(239,68,68,0.4)] animate-pulse-fast will-change-transform" />
-        <div className="absolute bottom-1/2 left-1/4 w-12 h-12 bg-red-500/45 rounded-full shadow-[0_0_20px_8px_rgba(239,68,68,0.35)] animate-pulse-fast will-change-transform" />
-        <div className="absolute top-3/4 right-20 w-10 h-10 bg-red-500/50 rounded-full shadow-[0_0_18px_6px_rgba(239,68,68,0.4)] animate-pulse-fast will-change-transform" />
+        {/* Small dots */}
+        <div className="absolute top-20 left-1/4 w-16 h-16 bg-red-500/40 rounded-full blur-lg animate-pulse-fast will-change-transform" />
+        <div className="absolute bottom-32 left-1/3 w-20 h-20 bg-red-500/35 rounded-full blur-lg animate-pulse will-change-transform" />
+        <div className="absolute top-1/2 right-1/4 w-24 h-24 bg-red-500/30 rounded-full blur-xl animate-pulse-fast will-change-transform" />
+        <div className="absolute bottom-1/3 right-1/3 w-16 h-16 bg-red-500/40 rounded-full blur-lg animate-pulse-fast will-change-transform" />
+        <div className="absolute top-2/3 left-1/4 w-20 h-20 bg-red-500/35 rounded-full blur-lg animate-pulse-fast will-change-transform" />
+        
+        {/* Tiny dots */}
+        <div className="absolute top-40 right-1/3 w-8 h-8 bg-red-500/50 rounded-full blur-md animate-pulse-fast will-change-transform" />
+        <div className="absolute bottom-40 left-1/4 w-12 h-12 bg-red-500/45 rounded-full blur-lg animate-pulse-fast will-change-transform" />
+        <div className="absolute top-1/4 left-1/3 w-10 h-10 bg-red-500/50 rounded-full blur-md animate-pulse-fast will-change-transform" />
+        <div className="absolute bottom-1/4 right-1/4 w-6 h-6 bg-red-500/50 rounded-full blur-sm animate-pulse-fast will-change-transform" />
+        <div className="absolute top-2/3 right-1/3 w-8 h-8 bg-red-500/45 rounded-full blur-md animate-pulse-fast will-change-transform" />
+        <div className="absolute bottom-2/3 left-1/2 w-10 h-10 bg-red-500/50 rounded-full blur-md animate-pulse-fast will-change-transform" />
+        
+        {/* Additional dots */}
+        <div className="absolute top-1/4 right-1/2 w-12 h-12 bg-red-500/45 rounded-full blur-lg animate-pulse-fast will-change-transform" />
+        <div className="absolute bottom-1/2 left-20 w-14 h-14 bg-red-500/40 rounded-full blur-lg animate-pulse-fast will-change-transform" />
+        <div className="absolute top-3/4 right-20 w-10 h-10 bg-red-500/50 rounded-full blur-md animate-pulse-fast will-change-transform" />
       </div>
 
       <div className="container mx-auto px-4 relative z-[2]">
-        {/* Section Header - Optimized */}
+        {/* Section Header */}
         <div className="text-center mb-16 relative">
           <ScrollReveal delay={0.1}>
             <span className="text-red-500 font-medium tracking-wider text-sm uppercase mb-2 block">
@@ -129,18 +142,18 @@ function About() {
             </p>
           </ScrollReveal>
           
-          {/* Decorative Elements - Desktop only */}
-          <div className="hidden md:block absolute -top-4 -left-4 w-20 h-20 border-l-2 border-t-2 border-red-500/20 rounded-tl-3xl" />
-          <div className="hidden md:block absolute -bottom-4 -right-4 w-20 h-20 border-r-2 border-b-2 border-red-500/20 rounded-br-3xl" />
+          {/* Decorative Elements */}
+          <div className="absolute -top-4 -left-4 w-20 h-20 border-l-2 border-t-2 border-red-500/20 rounded-tl-3xl" />
+          <div className="absolute -bottom-4 -right-4 w-20 h-20 border-r-2 border-b-2 border-red-500/20 rounded-br-3xl" />
         </div>
 
-        {/* Profile and About Content - Optimized backdrop blur */}
+        {/* Profile and About Content */}
         <div className="max-w-4xl mx-auto mb-20">
           <div className="text-center">
             <ScrollReveal delay={0.2}>
               {/* Circular Headshot with Border */}
               <div className="relative inline-block mb-6">
-                <div className="w-40 h-40 md:w-48 md:h-48 rounded-full overflow-hidden border-4 border-red-500/20">
+                <div className="w-40 h-40 md:w-48 md:h-48 rounded-full overflow-hidden border-4 border-red-500/20 shadow-lg">
                   <img
                     src="/images/headshot/headshot.jpg"
                     alt="CEO Headshot"
@@ -150,7 +163,7 @@ function About() {
                     fetchPriority="high"
                   />
                 </div>
-                <div className="absolute -bottom-3 left-1/2 transform -translate-x-1/2 bg-red-500 text-white px-4 py-2 rounded-full text-sm font-medium">
+                <div className="absolute -bottom-3 left-1/2 transform -translate-x-1/2 bg-red-500 text-white px-4 py-2 rounded-full text-sm font-medium shadow-lg">
                   Creative Director
                 </div>
               </div>
@@ -171,22 +184,22 @@ function About() {
                     </p>
                   </div>
 
-                  {/* Quote marks - Desktop only */}
-                  <div className="hidden md:block absolute -left-4 -top-4 text-red-500/10 transform -translate-x-full">
+                  {/* Quote marks */}
+                  <div className="absolute -left-4 -top-4 text-red-500/10 transform -translate-x-full">
                     <FaQuoteLeft className="w-20 h-20 transform -scale-x-100" />
                   </div>
-                  <div className="hidden md:block absolute -right-4 -bottom-4 text-red-500/10 transform rotate-180">
+                  <div className="absolute -right-4 -bottom-4 text-red-500/10 transform rotate-180">
                     <FaQuoteLeft className="w-20 h-20 transform -scale-x-100" />
                   </div>
 
-                  {/* Content cards - Optimized backdrop blur */}
+                  {/* Content cards */}
                   <div className="grid md:grid-cols-2 gap-6">
-                    <div className="bg-black/40 md:bg-gradient-to-br md:from-black/40 md:to-black/20 rounded-3xl p-6 md:p-8 border border-red-500/10">
+                    <div className="bg-gradient-to-br from-black/40 to-black/20 backdrop-blur-sm rounded-3xl p-6 md:p-8 border border-red-500/10 hover:border-red-500/20 transition-colors duration-300">
                       <p className="text-gray-200 leading-relaxed">
                         Winterior Designs Co. is dedicated to creating beautiful and functional spaces that reflect your personal style and needs. With years of experience, our team of designers works closely with clients to bring their vision to life.
                       </p>
                     </div>
-                    <div className="bg-black/40 md:bg-gradient-to-br md:from-black/40 md:to-black/20 rounded-3xl p-6 md:p-8 border border-red-500/10">
+                    <div className="bg-gradient-to-br from-black/40 to-black/20 backdrop-blur-sm rounded-3xl p-6 md:p-8 border border-red-500/10 hover:border-red-500/20 transition-colors duration-300">
                       <p className="text-gray-200 leading-relaxed">
                         We believe that every space has the potential to be extraordinary. Let us help you transform your home or office into a place you will love.
                       </p>

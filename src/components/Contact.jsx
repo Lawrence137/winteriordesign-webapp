@@ -163,10 +163,10 @@ function Contact() {
                 </li>
               </ul>
               <div className="mt-6">
-                <a
-                  href={whatsappLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
+          <a
+            href={whatsappLink}
+            target="_blank"
+            rel="noopener noreferrer"
                   className="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded-full flex items-center justify-center w-full transition text-sm"
                 >
                   <FaWhatsapp className="mr-2" /> WhatsApp Us

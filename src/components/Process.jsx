@@ -109,7 +109,7 @@ function Process() {
             {/* Main Title */}
             <h2 className="text-lg font-medium tracking-wider uppercase mb-4 text-red-500">
               Our Process
-            </h2>
+        </h2>
 
             {/* Decorative Bottom Line - Simplified */}
             <div className="flex items-center justify-center gap-2 sm:gap-4 mb-6">
@@ -121,20 +121,20 @@ function Process() {
             {/* Description with Enhanced Styling - Optimized for mobile */}
             <div className="relative max-w-2xl mx-auto">
               <p className="text-base md:text-lg text-gray-100 leading-relaxed px-2">
-                One of the reasons we became interior designers in the first place was because we love collecting and then putting it all together. Winterior Design talented team listens, researches, synthesizes, and implements.
-              </p>
-              
+          One of the reasons we became interior designers in the first place was because we love collecting and then putting it all together. Winterior Design talented team listens, researches, synthesizes, and implements.
+        </p>
+
               {/* Corner Decorations - Desktop only */}
               <div className="hidden md:block absolute -top-2 sm:-top-4 -left-2 sm:-left-4 w-6 sm:w-8 h-6 sm:h-8 border-l-2 border-t-2 border-red-500/40 rounded-tl-xl" />
               <div className="hidden md:block absolute -bottom-2 sm:-bottom-4 -right-2 sm:-right-4 w-6 sm:w-8 h-6 sm:h-8 border-r-2 border-b-2 border-red-500/40 rounded-br-xl" />
-            </div>
+          </div>
 
             {/* Mobile-optimized Decorative Elements */}
             <div className="absolute top-0 left-0 w-full h-full pointer-events-none overflow-hidden">
               <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-red-500/40 rounded-full shadow-[0_0_10px_2px_rgba(239,68,68,0.3)] will-change-transform" />
               <div className="absolute bottom-1/4 right-1/4 w-2 h-2 bg-red-500/40 rounded-full shadow-[0_0_10px_2px_rgba(239,68,68,0.3)] will-change-transform" />
               <div className="absolute top-3/4 left-1/3 w-2 h-2 bg-red-500/40 rounded-full shadow-[0_0_10px_2px_rgba(239,68,68,0.3)] will-change-transform" />
-            </div>
+          </div>
           </div>
         </div>
 
