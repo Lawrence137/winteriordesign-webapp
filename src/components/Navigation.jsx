@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import MenuButton from './MenuButton';
 import { FaChevronRight, FaHome, FaInfoCircle, FaImages, FaPhone, FaUtensils, FaBath, FaDoorClosed, FaTv } from 'react-icons/fa';
+import OptimizedImage from './OptimizedImage';
 
 function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
@@ -80,10 +81,15 @@ function Navigation() {
       <div className="flex items-center justify-between h-[90px] px-6 border-b border-gray-100">
         {/* Logo */}
         <Link to="/" className="flex items-center">
-          <img 
+          <OptimizedImage 
             src="/images/WinteriorLogo2.png" 
             alt="Winterior Design" 
             className="h-[50px] w-auto"
+            width={245}
+            height={75}
+            priority={true}
+            isLogo={true}
+            sizes="(max-width: 640px) 163px, 245px"
           />
         </Link>
 
@@ -126,10 +132,15 @@ function Navigation() {
           <div className="flex flex-col h-full">
             {/* Menu Header */}
             <div className="p-6 border-b border-gray-100">
-              <img 
+              <OptimizedImage 
                 src="/images/WinteriorLogo2.png" 
                 alt="Winterior Design" 
                 className="h-8 w-auto"
+                width={163}
+                height={50}
+                priority={true}
+                isLogo={true}
+                sizes="163px"
               />
             </div>
 

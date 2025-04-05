@@ -9,17 +9,33 @@ const OptimizedImage = ({
   loading = 'lazy',
   sizes = '100vw',
   onClick,
-  priority = false
+  priority = false,
+  isLogo = false
 }) => {
   // Generate paths for different formats and sizes
   const getImagePath = (originalSrc, size, format) => {
-    const path = originalSrc.replace('/images/', '/images/optimized/');
-    const filename = path.substring(0, path.lastIndexOf('.'));
-    return `${filename}-${size}.${format}`;
+    try {
+      // For logos, use simpler path structure
+      if (isLogo) {
+        const baseName = originalSrc.split('/').pop().split('.')[0];
+        return `/images/optimized/${baseName}-${size}.${format}`;
+      }
+
+      // For regular images, maintain subdirectory structure
+      const pathParts = originalSrc.split('/');
+      const filename = pathParts[pathParts.length - 1];
+      const baseName = filename.substring(0, filename.lastIndexOf('.'));
+      const subPath = pathParts.slice(2, -1).join('/');
+      const optimizedPath = subPath ? `optimized/${subPath}` : 'optimized';
+      return `/images/${optimizedPath}/${baseName}-${size}.${format}`;
+    } catch (error) {
+      console.error('Error generating image path:', error);
+      return originalSrc; // Fallback to original source
+    }
   };
 
   // Define available sizes
-  const imageSizes = ['sm', 'md', 'lg', 'xl'];
+  const imageSizes = isLogo ? ['sm', 'md'] : ['sm', 'md', 'lg', 'xl'];
   const breakpoints = {
     sm: 320,
     md: 640,
@@ -27,16 +43,21 @@ const OptimizedImage = ({
     xl: 1920
   };
 
+  // Use original source as fallback
+  const fallbackSrc = src;
+
   return (
     <picture>
-      {/* AVIF format */}
-      <source
-        type="image/avif"
-        sizes={sizes}
-        srcSet={imageSizes
-          .map(size => `${getImagePath(src, size, 'avif')} ${breakpoints[size]}w`)
-          .join(', ')}
-      />
+      {/* AVIF format (skip for logos) */}
+      {!isLogo && (
+        <source
+          type="image/avif"
+          sizes={sizes}
+          srcSet={imageSizes
+            .map(size => `${getImagePath(src, size, 'avif')} ${breakpoints[size]}w`)
+            .join(', ')}
+        />
+      )}
       
       {/* WebP format */}
       <source
@@ -47,12 +68,9 @@ const OptimizedImage = ({
           .join(', ')}
       />
       
-      {/* JPEG format (fallback) */}
+      {/* Original format (fallback) */}
       <img
-        src={getImagePath(src, 'lg', 'jpg')}
-        srcSet={imageSizes
-          .map(size => `${getImagePath(src, size, 'jpg')} ${breakpoints[size]}w`)
-          .join(', ')}
+        src={fallbackSrc}
         alt={alt}
         className={className}
         width={width}
@@ -61,6 +79,10 @@ const OptimizedImage = ({
         decoding={priority ? 'sync' : 'async'}
         onClick={onClick}
         sizes={sizes}
+        onError={(e) => {
+          console.error('Error loading image:', src);
+          e.target.src = fallbackSrc;
+        }}
       />
     </picture>
   );

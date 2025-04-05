@@ -1,6 +1,7 @@
 import { FaWhatsapp, FaEnvelope, FaPhone, FaMapMarkerAlt, FaInstagram, FaFacebook, FaLinkedin, FaChevronDown } from 'react-icons/fa';
 import { useState } from 'react';
 import ScrollReveal from './ScrollReveal';
+import OptimizedImage from './OptimizedImage';
 
 function Contact() {
   const [openFaqIndex, setOpenFaqIndex] = useState(null);
@@ -44,10 +45,15 @@ function Contact() {
           {/* Company Info */}
           <ScrollReveal delay={0.1}>
             <div className="space-y-4">
-              <img 
+              <OptimizedImage 
                 src="/images/winteriordarklogo2.png" 
                 alt="Winterior Design" 
                 className="h-12 w-auto"
+                width={245}
+                height={75}
+                priority={true}
+                isLogo={true}
+                sizes="(max-width: 640px) 163px, 245px"
               />
               <p className="text-sm">
                 Creating exceptional spaces that inspire and delight. Your vision, our expertise.

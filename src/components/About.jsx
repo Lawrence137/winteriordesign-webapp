@@ -2,6 +2,7 @@ import { memo } from 'react';
 import { FaMoneyBillWave, FaPaintBrush, FaUsers, FaQuoteLeft } from 'react-icons/fa';
 import { FaWallet, FaPaintRoller, FaUserGear } from 'react-icons/fa6';
 import ScrollReveal from './ScrollReveal';
+import OptimizedImage from './OptimizedImage';
 
 // Memoize the feature card to prevent unnecessary re-renders
 const FeatureCard = memo(({ Icon, title, description, delay }) => (
@@ -154,13 +155,14 @@ function About() {
               {/* Circular Headshot with Border */}
               <div className="relative inline-block mb-6">
                 <div className="w-40 h-40 md:w-48 md:h-48 rounded-full overflow-hidden border-4 border-red-500/20 shadow-lg">
-                  <img
+                  <OptimizedImage
                     src="/images/headshot/headshot.jpg"
                     alt="CEO Headshot"
                     className="w-full h-full object-cover"
-                    loading="eager"
-                    decoding="async"
-                    fetchPriority="high"
+                    width={192}
+                    height={192}
+                    priority={true}
+                    sizes="(max-width: 768px) 160px, 192px"
                   />
                 </div>
                 <div className="absolute -bottom-3 left-1/2 transform -translate-x-1/2 bg-red-500 text-white px-4 py-2 rounded-full text-sm font-medium shadow-lg">
