@@ -44,15 +44,16 @@ function Navigation() {
       icon: <FaUtensils className="w-5 h-5" />
     },
     { 
-      path: '/portfolio/category/bathroom-vanities', 
-      label: 'Bathrooms',
-      icon: <FaBath className="w-5 h-5" />
-    },
-    { 
       path: '/portfolio/category/closets-and-wardrobes', 
       label: 'Wardrobes',
       icon: <FaDoorClosed className="w-5 h-5" />
     },
+    { 
+      path: '/portfolio/category/bathroom-vanities', 
+      label: 'Vanities',
+      icon: <FaBath className="w-5 h-5" />
+    },
+
     { 
       path: '/portfolio/category/tv-units', 
       label: 'TV Units',
