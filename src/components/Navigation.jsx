@@ -39,35 +39,24 @@ function Navigation() {
       icon: <FaInfoCircle className="w-5 h-5" />
     },
     { 
-      path: '/portfolio', 
-      label: 'Portfolio',
-      icon: <FaImages className="w-5 h-5" />,
-      subItems: [
-        { 
-          path: '/portfolio/category/kitchen-cabinets', 
-          label: 'Kitchen Cabinets',
-          icon: <FaUtensils className="w-4 h-4" />,
-          description: 'Modern designs for a functional and stylish kitchen'
-        },
-        { 
-          path: '/portfolio/category/bathroom-vanities', 
-          label: 'Bathroom Vanities',
-          icon: <FaBath className="w-4 h-4" />,
-          description: 'Elegant bathroom solutions for your home'
-        },
-        { 
-          path: '/portfolio/category/closets-and-wardrobes', 
-          label: 'Closets & Wardrobes',
-          icon: <FaDoorClosed className="w-4 h-4" />,
-          description: 'Custom storage solutions for any space'
-        },
-        { 
-          path: '/portfolio/category/tv-units', 
-          label: 'TV Units',
-          icon: <FaTv className="w-4 h-4" />,
-          description: 'Contemporary entertainment unit designs'
-        }
-      ]
+      path: '/portfolio/category/kitchen-cabinets', 
+      label: 'Kitchens',
+      icon: <FaUtensils className="w-5 h-5" />
+    },
+    { 
+      path: '/portfolio/category/bathroom-vanities', 
+      label: 'Bathrooms',
+      icon: <FaBath className="w-5 h-5" />
+    },
+    { 
+      path: '/portfolio/category/closets-and-wardrobes', 
+      label: 'Wardrobes',
+      icon: <FaDoorClosed className="w-5 h-5" />
+    },
+    { 
+      path: '/portfolio/category/tv-units', 
+      label: 'TV Units',
+      icon: <FaTv className="w-5 h-5" />
     },
     { 
       path: '/contact', 
@@ -148,74 +137,19 @@ function Navigation() {
             <div className="flex-1 overflow-y-auto py-6">
               <div className="px-3">
                 {menuItems.map((item) => (
-                  <div key={item.path} className="mb-2">
-                    {item.subItems ? (
-                      <div>
-                        <button
-                          onClick={() => setActiveSubmenu(activeSubmenu === item.path ? null : item.path)}
-                          className={`w-full flex items-center justify-between p-3 rounded-xl transition-colors duration-200 ${
-                            location.pathname.startsWith(item.path)
-                              ? 'bg-red-50 text-red-500'
-                              : 'hover:bg-gray-50 text-gray-900'
-                          }`}
-                        >
-                          <div className="flex items-center gap-3">
-                            {item.icon}
-                            <span className="font-medium">{item.label}</span>
-                          </div>
-                          <FaChevronRight className={`w-4 h-4 transition-transform duration-200 ${
-                            activeSubmenu === item.path ? 'rotate-90' : ''
-                          }`} />
-                        </button>
-                        {/* Submenu */}
-                        <div className={`overflow-hidden transition-all duration-300 ${
-                          activeSubmenu === item.path ? 'max-h-[400px]' : 'max-h-0'
-                        }`}>
-                          <div className="pl-4 pr-3 py-2 space-y-2">
-                            {item.subItems.map((subItem) => (
-                              <Link
-                                key={subItem.path}
-                                to={subItem.path}
-                                onClick={toggleMenu}
-                                className={`block p-4 rounded-xl transition-all duration-200 hover:bg-gray-50 ${
-                                  location.pathname === subItem.path
-                                    ? 'bg-red-50' : ''
-                                }`}
-                              >
-                                <div className="flex items-center gap-3 text-gray-900">
-                                  {subItem.icon}
-                                  <div>
-                                    <div className={`font-medium ${
-                                      location.pathname === subItem.path
-                                        ? 'text-red-500' : ''
-                                    }`}>
-                                      {subItem.label}
-                                    </div>
-                                    <div className="text-xs text-gray-500 mt-0.5">
-                                      {subItem.description}
-                                    </div>
-                                  </div>
-                                </div>
-                              </Link>
-                            ))}
-                          </div>
-                        </div>
-                      </div>
-                    ) : (
-                      <Link
-                        to={item.path}
-                        onClick={toggleMenu}
-                        className={`flex items-center gap-3 p-3 rounded-xl transition-colors duration-200 ${
-                          location.pathname === item.path
-                            ? 'bg-red-50 text-red-500'
-                            : 'hover:bg-gray-50 text-gray-900'
-                        }`}
-                      >
-                        {item.icon}
-                        <span className="font-medium">{item.label}</span>
-                      </Link>
-                    )}
-                  </div>
+                  <Link
+                    key={item.path}
+                    to={item.path}
+                    onClick={toggleMenu}
+                    className={`flex items-center gap-3 p-3 rounded-xl transition-colors duration-200 ${
+                      location.pathname === item.path
+                        ? 'bg-red-50 text-red-500'
+                        : 'hover:bg-gray-50 text-gray-900'
+                    }`}
+                  >
+                    {item.icon}
+                    <span className="font-medium">{item.label}</span>
+                  </Link>
                 ))}
               </div>
             </div>
