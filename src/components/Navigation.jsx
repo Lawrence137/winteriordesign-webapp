@@ -67,14 +67,14 @@ function Navigation() {
   ];
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-white">
-      <div className="flex items-center justify-between h-[90px] px-6 border-b border-gray-100">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-white shadow-sm">
+      <div className="flex items-center justify-between h-[90px] px-6 border-b border-gray-50">
         {/* Logo */}
-        <Link to="/" className="flex items-center">
+        <Link to="/" className="flex items-center transition-transform duration-200 hover:scale-[1.02]">
           <OptimizedImage 
             src="/images/WinteriorLogo2.png" 
             alt="Winterior Design" 
-            className="h-[50px] w-auto"
+            className="h-[45px] w-auto"
             width={245}
             height={75}
             priority={true}
@@ -89,13 +89,16 @@ function Navigation() {
             <Link
               key={item.path}
               to={item.path}
-              className={`text-base font-medium transition-colors duration-200 ${
+              className={`text-base font-medium transition-all duration-200 relative group ${
                 location.pathname === item.path
                 ? 'text-red-500'
                 : 'text-gray-900 hover:text-red-500'
               }`}
             >
               {item.label}
+              <span className={`absolute -bottom-1 left-0 w-0 h-0.5 bg-red-500 transition-all duration-200 group-hover:w-full ${
+                location.pathname === item.path ? 'w-full' : ''
+              }`} />
             </Link>
           ))}
         </div>
